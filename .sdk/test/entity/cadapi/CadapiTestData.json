@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "cadapi": {
+      "CADAPI00": {
+        "count": 50,
+        "data": [],
+        "field": [],
+        "signature": {},
+        "total": 54
+      },
+      "CADAPI01": {
+        "count": 100,
+        "data": [],
+        "field": [],
+        "signature": {},
+        "total": 104
+      },
+      "CADAPI02": {
+        "count": 150,
+        "data": [],
+        "field": [],
+        "signature": {},
+        "total": 154
+      }
+    }
+  },
+  "new": {
+    "cadapi": {
+      "cadapi_ref01": {
+        "count": 200,
+        "data": [],
+        "field": [],
+        "signature": {},
+        "total": 204
+      }
+    }
+  }
+}

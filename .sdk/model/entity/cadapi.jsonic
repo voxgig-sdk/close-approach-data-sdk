@@ -1,0 +1,306 @@
+# Entity: cadapi
+
+main: kit: entity: cadapi: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "count"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "data"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "field"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "signature"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "total"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  name: "cadapi"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "Earth"
+                kind: "query"
+                name: "body"
+                orig: "body"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "ATE"
+                kind: "query"
+                name: "class"
+                orig: "class"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "comet"
+                orig: "comet"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "2100-01-01"
+                kind: "query"
+                name: "date_max"
+                orig: "date_max"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2018-01-01"
+                kind: "query"
+                name: "date_min"
+                orig: "date_min"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "433"
+                kind: "query"
+                name: "des"
+                orig: "des"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "diameter"
+                orig: "diameter"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "0.2"
+                kind: "query"
+                name: "dist_max"
+                orig: "dist_max"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "0.05"
+                kind: "query"
+                name: "dist_min"
+                orig: "dist_min"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "fullname"
+                orig: "fullname"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "h_max"
+                orig: "h_max"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "h_min"
+                orig: "h_min"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "kind"
+                orig: "kind"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "limit_from"
+                orig: "limit_from"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_dist_max"
+                orig: "min_dist_max"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "min_dist_min"
+                orig: "min_dist_min"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "nea"
+                orig: "nea"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "nea_comet"
+                orig: "nea_comet"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: true
+                kind: "query"
+                name: "neo"
+                orig: "neo"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "pha"
+                orig: "pha"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "date"
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 2000433
+                kind: "query"
+                name: "spk"
+                orig: "spk"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "total_only"
+                orig: "total_only"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "v_inf_max"
+                orig: "v_inf_max"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "v_inf_min"
+                orig: "v_inf_min"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "v_rel_max"
+                orig: "v_rel_max"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "v_rel_min"
+                orig: "v_rel_min"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cad.api"
+          parts: [
+            "cad.api"
+          ]
+          select: {
+            exist: [
+              "body"
+              "class"
+              "comet"
+              "date_max"
+              "date_min"
+              "des"
+              "diameter"
+              "dist_max"
+              "dist_min"
+              "fullname"
+              "h_max"
+              "h_min"
+              "kind"
+              "limit"
+              "limit_from"
+              "min_dist_max"
+              "min_dist_min"
+              "nea"
+              "nea_comet"
+              "neo"
+              "pha"
+              "sort"
+              "spk"
+              "total_only"
+              "v_inf_max"
+              "v_inf_min"
+              "v_rel_max"
+              "v_rel_min"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

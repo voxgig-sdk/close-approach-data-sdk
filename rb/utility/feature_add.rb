@@ -1,0 +1,6 @@
+# CloseApproachData SDK utility: feature_add
+module CloseApproachDataUtilities
+  FeatureAdd = ->(ctx, f) {
+    ctx.client.features << f
+  }
+end

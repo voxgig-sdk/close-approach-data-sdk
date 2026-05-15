@@ -1,0 +1,627 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Close Approach Data API",
+    "description": "This API provides access to current close-approach data for all asteroids and comets in JPL's SBDB (Small-Body DataBase). It allows users to obtain detailed information about near-Earth objects and their proximity to our planet based on various query parameters. Defaults for query parameters are setup for a typical CNEOS web-site search: NEO Earth close-approaches less than 0.05 au in the next 60 days sorted by date.",
+    "version": "1.5",
+    "contact": {
+      "name": "NASA JPL SBDB",
+      "url": "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ssd-api.jpl.nasa.gov",
+      "description": "JPL Small-Body Database API Server"
+    }
+  ],
+  "paths": {
+    "/cad.api": {
+      "get": {
+        "summary": "Get Close Approach Data",
+        "description": "Retrieve close-approach data for asteroids and comets. Returns data for near-Earth objects and their proximity to specified celestial bodies based on query parameters.",
+        "operationId": "getCloseApproachData",
+        "parameters": [
+          {
+            "name": "date-min",
+            "in": "query",
+            "description": "Exclude data earlier than this date. Format: YYYY-MM-DD or YYYY-MM-DDThh:mm:ss or 'now' for current date",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "now"
+            },
+            "example": "2018-01-01"
+          },
+          {
+            "name": "date-max",
+            "in": "query",
+            "description": "Exclude data later than this date. Format: YYYY-MM-DD or YYYY-MM-DDThh:mm:ss or 'now' or +D for D days after now (e.g., +60). Note: URL-encode the plus sign as %2B",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "+60"
+            },
+            "example": "2100-01-01"
+          },
+          {
+            "name": "dist-min",
+            "in": "query",
+            "description": "Exclude data with approach distance less than this value (default units: au). Example: 0.05 or 10LD",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "0.05"
+          },
+          {
+            "name": "dist-max",
+            "in": "query",
+            "description": "Exclude data with approach distance greater than this value (default units: au). Example: 0.2 or 10LD",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "0.05"
+            },
+            "example": "0.2"
+          },
+          {
+            "name": "min-dist-min",
+            "in": "query",
+            "description": "Exclude data with approach minimum-distance less than this value (default units: au)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "min-dist-max",
+            "in": "query",
+            "description": "Exclude data with approach minimum-distance greater than this value (default units: au)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "h-min",
+            "in": "query",
+            "description": "Exclude data from objects with H-values less than this (smaller objects). Example: 22",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "h-max",
+            "in": "query",
+            "description": "Exclude data from objects with H-values greater than this (larger objects). Example: 17.75",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "v-inf-min",
+            "in": "query",
+            "description": "Exclude data with V-infinity less than this positive value in km/s. Example: 18.5",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "v-inf-max",
+            "in": "query",
+            "description": "Exclude data with V-infinity greater than this positive value in km/s. Example: 20",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "v-rel-min",
+            "in": "query",
+            "description": "Exclude data with V-relative less than this positive value in km/s. Example: 11.2",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "v-rel-max",
+            "in": "query",
+            "description": "Exclude data with V-relative greater than this positive value in km/s. Example: 19",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "class",
+            "in": "query",
+            "description": "Limit data to objects with the specified orbit-class. Valid values: IEO, ATE, APO, AMO, MCA, IMB, MBA, OMB, TJN, CEN, TNO, PAA, HYA, HYP, PAR, COM, JFC, HTC, ETc, CTc, JFc",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "IEO",
+                "ATE",
+                "APO",
+                "AMO",
+                "MCA",
+                "IMB",
+                "MBA",
+                "OMB",
+                "TJN",
+                "CEN",
+                "TNO",
+                "PAA",
+                "HYA",
+                "HYP",
+                "PAR",
+                "COM",
+                "JFC",
+                "HTC",
+                "ETc",
+                "CTc",
+                "JFc"
+              ]
+            },
+            "example": "ATE"
+          },
+          {
+            "name": "pha",
+            "in": "query",
+            "description": "Limit data to Potentially Hazardous Asteroids (PHAs)",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "nea",
+            "in": "query",
+            "description": "Limit data to Near-Earth Asteroids (NEAs)",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "comet",
+            "in": "query",
+            "description": "Limit data to comets",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "nea-comet",
+            "in": "query",
+            "description": "Limit data to NEAs and comets",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "neo",
+            "in": "query",
+            "description": "Limit data to Near-Earth Objects (NEOs)",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Limit data to objects of specified kind: a=asteroid, an=numbered-asteroids, au=unnumbered-asteroids, c=comets, cn=numbered-comets, cu=unnumbered-comets, n=numbered-objects, u=unnumbered-objects",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "a",
+                "an",
+                "au",
+                "c",
+                "cn",
+                "cu",
+                "n",
+                "u"
+              ]
+            }
+          },
+          {
+            "name": "spk",
+            "in": "query",
+            "description": "Only data for the object matching this SPK-ID. Example: 2000433",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 2000433
+          },
+          {
+            "name": "des",
+            "in": "query",
+            "description": "Only data for the object matching this designation. Example: 433 or 2015 AB or 141P. Note: Replace spaces with %20 in query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "433"
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "description": "Limit data to close-approaches to the specified body or use ALL or * for all bodies. Valid values: Merc, Venus, Earth, Mars, Juptr, Satrn, Urnus, Neptn, Pluto, Moon",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "Earth",
+              "enum": [
+                "Merc",
+                "Venus",
+                "Earth",
+                "Mars",
+                "Juptr",
+                "Satrn",
+                "Urnus",
+                "Neptn",
+                "Pluto",
+                "Moon",
+                "ALL",
+                "*"
+              ]
+            },
+            "example": "Earth"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort data on specified field: date, dist, dist-min, v-inf, v-rel, h, or object. Prepend '-' for descending order",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "date",
+              "enum": [
+                "date",
+                "dist",
+                "dist-min",
+                "v-inf",
+                "v-rel",
+                "h",
+                "object",
+                "-date",
+                "-dist",
+                "-dist-min",
+                "-v-inf",
+                "-v-rel",
+                "-h",
+                "-object"
+              ]
+            },
+            "example": "date"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit data to first N results (integer greater than zero). Also outputs total available matching records",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit-from",
+            "in": "query",
+            "description": "Limit data to results starting from record N (integer greater than zero). Requires limit parameter",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "total-only",
+            "in": "query",
+            "description": "Output only the total number of records matching the filter, ignoring limit and limit-from. No data output",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "diameter",
+            "in": "query",
+            "description": "Include known diameter and diameter_sigma values in output",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "fullname",
+            "in": "query",
+            "description": "Include full-format object name/designation in output",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with close-approach data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CloseApproachResponse"
+                },
+                "examples": {
+                  "successWithData": {
+                    "summary": "Successful response with 3 records",
+                    "value": {
+                      "signature": {
+                        "source": "NASA/JPL SBDB Close Approach Data API",
+                        "version": "1.5"
+                      },
+                      "count": 3,
+                      "fields": [
+                        "des",
+                        "orbit_id",
+                        "jd",
+                        "cd",
+                        "dist",
+                        "dist_min",
+                        "dist_max",
+                        "v_rel",
+                        "v_inf",
+                        "t_sigma_f",
+                        "h",
+                        "diameter",
+                        "diameter_sigma",
+                        "fullname"
+                      ],
+                      "data": [
+                        [
+                          "153814",
+                          "174",
+                          "2461948.724524223",
+                          "2028-Jun-26 05:23",
+                          "0.00166253924938707",
+                          "0.00166237672775144",
+                          "0.00166270177137481",
+                          "10.2426019613426",
+                          "10.084918538826",
+                          "< 00:01",
+                          "18.33",
+                          "0.932",
+                          "0.011",
+                          "153814 (2001 WN5)"
+                        ],
+                        [
+                          "99942",
+                          "206",
+                          "2462240.407091595",
+                          "2029-Apr-13 21:46",
+                          "0.000254099098170977",
+                          "0.000254085852623379",
+                          "0.000254112343772133",
+                          "7.42249308586014",
+                          "5.84135545611464",
+                          "< 00:01",
+                          "19.7",
+                          "0.34",
+                          "0.04",
+                          " 99942 Apophis (2004 MN4)"
+                        ],
+                        [
+                          "2001 AV43",
+                          "42",
+                          "2462452.142037054",
+                          "2029-Nov-11 15:25",
+                          "0.00209271674918052",
+                          "0.00209125158265035",
+                          "0.00209418316351851",
+                          "3.99789389003422",
+                          "3.66561381185116",
+                          "00:03",
+                          "24.6",
+                          null,
+                          null,
+                          " (2001 AV43)"
+                        ]
+                      ]
+                    }
+                  },
+                  "zeroResults": {
+                    "summary": "Successful response with no matching data",
+                    "value": {
+                      "signature": {
+                        "version": "1.5",
+                        "source": "NASA/JPL SBDB Close Approach Data API"
+                      },
+                      "count": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid keywords and/or content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed - Incorrect HTTP method used",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Database not available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable - Server temporarily overloaded or under maintenance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Close Approach Data"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CloseApproachResponse": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "description": "Source of the data",
+                "example": "NASA/JPL SBDB Close Approach Data API"
+              },
+              "version": {
+                "type": "string",
+                "description": "API version",
+                "example": "1.5"
+              }
+            },
+            "required": [
+              "source",
+              "version"
+            ]
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of records returned",
+            "example": 3
+          },
+          "total": {
+            "type": "number",
+            "description": "Total number of matching records (when limit is used)"
+          },
+          "fields": {
+            "type": "array",
+            "description": "Field names corresponding to data array elements",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "des",
+              "orbit_id",
+              "jd",
+              "cd",
+              "dist",
+              "dist_min",
+              "dist_max",
+              "v_rel",
+              "v_inf",
+              "t_sigma_f",
+              "h"
+            ]
+          },
+          "data": {
+            "type": "array",
+            "description": "Array of close-approach records",
+            "items": {
+              "type": "array",
+              "description": "Single close-approach record with fields in order: des, orbit_id, jd, cd, dist, dist_min, dist_max, v_rel, v_inf, t_sigma_f, body (optional), h, diameter (optional), diameter_sigma (optional), fullname (optional)",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "required": [
+          "signature",
+          "count"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message describing the issue"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error information"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Close Approach Data",
+      "description": "Access close-approach data for asteroids and comets in JPL's Small-Body Database"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official API Documentation",
+    "url": "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+  }
+}

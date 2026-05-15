@@ -1,0 +1,22 @@
+# BasicCadapiFlow
+
+main: kit: flow: BasicCadapiFlow:
+{
+  entity: "cadapi",
+  kind: "basic",
+  name: "BasicCadapiFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "cadapi_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCadapiFlow"
+}

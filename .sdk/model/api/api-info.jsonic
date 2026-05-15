@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "NASA JPL SBDB"
+        url: "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+      }
+      description: "This API provides access to current close-approach data for all asteroids and comets in JPL's SBDB (Small-Body DataBase). It allows users to obtain detailed information about near-Earth objects and their proximity to our planet based on various query parameters. Defaults for query parameters are setup for a typical CNEOS web-site search: NEO Earth close-approaches less than 0.05 au in the next 60 days sorted by date."
+      servers: [
+        {
+          description: "JPL Small-Body Database API Server"
+          url: "https://ssd-api.jpl.nasa.gov"
+        }
+      ]
+      title: "Close Approach Data API"
+      version: "1.5"
+    }
+  }
+}
+
+}

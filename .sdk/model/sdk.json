@@ -1,0 +1,631 @@
+{
+  "name": "close-approach-data",
+  "origin": "voxgig-sdk",
+  "def": "close-approach-data_0.1.0.json",
+  "main": {
+    "kit": {
+      "info": {
+        "contact": {
+          "name": "NASA JPL SBDB",
+          "url": "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+        },
+        "description": "This API provides access to current close-approach data for all asteroids and comets in JPL's SBDB (Small-Body DataBase). It allows users to obtain detailed information about near-Earth objects and their proximity to our planet based on various query parameters. Defaults for query parameters are setup for a typical CNEOS web-site search: NEO Earth close-approaches less than 0.05 au in the next 60 days sorted by date.",
+        "servers": [
+          {
+            "description": "JPL Small-Body Database API Server",
+            "url": "https://ssd-api.jpl.nasa.gov"
+          }
+        ],
+        "title": "Close Approach Data API",
+        "version": "1.5"
+      },
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "cadapi": {
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "name": "count",
+              "req": true,
+              "type": "`$NUMBER`",
+              "active": true
+            },
+            {
+              "name": "data",
+              "req": false,
+              "type": "`$ARRAY`",
+              "active": true
+            },
+            {
+              "name": "field",
+              "req": false,
+              "type": "`$ARRAY`",
+              "active": true
+            },
+            {
+              "name": "signature",
+              "req": true,
+              "type": "`$OBJECT`",
+              "active": true
+            },
+            {
+              "name": "total",
+              "req": false,
+              "type": "`$NUMBER`",
+              "active": true
+            }
+          ],
+          "name": "cadapi",
+          "op": {
+            "list": {
+              "name": "list",
+              "points": [
+                {
+                  "args": {
+                    "query": [
+                      {
+                        "example": "Earth",
+                        "kind": "query",
+                        "name": "body",
+                        "orig": "body",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": "ATE",
+                        "kind": "query",
+                        "name": "class",
+                        "orig": "class",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "comet",
+                        "orig": "comet",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": "2100-01-01",
+                        "kind": "query",
+                        "name": "date_max",
+                        "orig": "date_max",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": "2018-01-01",
+                        "kind": "query",
+                        "name": "date_min",
+                        "orig": "date_min",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": "433",
+                        "kind": "query",
+                        "name": "des",
+                        "orig": "des",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "diameter",
+                        "orig": "diameter",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": "0.2",
+                        "kind": "query",
+                        "name": "dist_max",
+                        "orig": "dist_max",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": "0.05",
+                        "kind": "query",
+                        "name": "dist_min",
+                        "orig": "dist_min",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "fullname",
+                        "orig": "fullname",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "h_max",
+                        "orig": "h_max",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "h_min",
+                        "orig": "h_min",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "kind",
+                        "orig": "kind",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "limit",
+                        "orig": "limit",
+                        "reqd": false,
+                        "type": "`$INTEGER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "limit_from",
+                        "orig": "limit_from",
+                        "reqd": false,
+                        "type": "`$INTEGER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "min_dist_max",
+                        "orig": "min_dist_max",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "min_dist_min",
+                        "orig": "min_dist_min",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "nea",
+                        "orig": "nea",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "nea_comet",
+                        "orig": "nea_comet",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": true,
+                        "kind": "query",
+                        "name": "neo",
+                        "orig": "neo",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "pha",
+                        "orig": "pha",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "example": "date",
+                        "kind": "query",
+                        "name": "sort",
+                        "orig": "sort",
+                        "reqd": false,
+                        "type": "`$STRING`",
+                        "active": true
+                      },
+                      {
+                        "example": 2000433,
+                        "kind": "query",
+                        "name": "spk",
+                        "orig": "spk",
+                        "reqd": false,
+                        "type": "`$INTEGER`",
+                        "active": true
+                      },
+                      {
+                        "example": false,
+                        "kind": "query",
+                        "name": "total_only",
+                        "orig": "total_only",
+                        "reqd": false,
+                        "type": "`$BOOLEAN`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "v_inf_max",
+                        "orig": "v_inf_max",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "v_inf_min",
+                        "orig": "v_inf_min",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "v_rel_max",
+                        "orig": "v_rel_max",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      },
+                      {
+                        "kind": "query",
+                        "name": "v_rel_min",
+                        "orig": "v_rel_min",
+                        "reqd": false,
+                        "type": "`$NUMBER`",
+                        "active": true
+                      }
+                    ]
+                  },
+                  "method": "GET",
+                  "orig": "/cad.api",
+                  "parts": [
+                    "cad.api"
+                  ],
+                  "select": {
+                    "exist": [
+                      "body",
+                      "class",
+                      "comet",
+                      "date_max",
+                      "date_min",
+                      "des",
+                      "diameter",
+                      "dist_max",
+                      "dist_min",
+                      "fullname",
+                      "h_max",
+                      "h_min",
+                      "kind",
+                      "limit",
+                      "limit_from",
+                      "min_dist_max",
+                      "min_dist_min",
+                      "nea",
+                      "nea_comet",
+                      "neo",
+                      "pha",
+                      "sort",
+                      "spk",
+                      "total_only",
+                      "v_inf_max",
+                      "v_inf_min",
+                      "v_rel_max",
+                      "v_rel_min"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  },
+                  "active": true
+                }
+              ],
+              "input": "data"
+            }
+          },
+          "active": true,
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "name": "test",
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1",
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            }
+          },
+          "target": {
+            "ts": {
+              "deps": {}
+            },
+            "go": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            }
+          }
+        }
+      },
+      "flow": {
+        "BasicCadapiFlow": {
+          "entity": "cadapi",
+          "kind": "basic",
+          "name": "BasicCadapiFlow",
+          "step": [
+            {
+              "op": "list",
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "cadapi_ref01"
+                  }
+                }
+              ],
+              "active": true,
+              "match": {},
+              "data": {},
+              "input": {},
+              "spec": []
+            }
+          ],
+          "key$": "BasicCadapiFlow",
+          "active": true,
+          "param": {}
+        }
+      },
+      "target": {
+        "ts": {
+          "title": "TypeScript",
+          "ext": "ts",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "deps": {
+            "dotenv": {
+              "active": true,
+              "version": "^17.4.2",
+              "kind": "dev"
+            },
+            "typescript": {
+              "active": true,
+              "version": "^5.9.3",
+              "kind": "dev"
+            },
+            "@types/node": {
+              "active": true,
+              "version": "^25.6.0",
+              "kind": "dev"
+            }
+          },
+          "name": "ts",
+          "active": true
+        },
+        "go": {
+          "title": "Golang",
+          "ext": "go",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "srcfeature": false,
+          "deps": {
+            "github.com/voxgig/struct": {
+              "active": true,
+              "version": "v0.0.0",
+              "replace": "./utility/struct",
+              "kind": "prod"
+            }
+          },
+          "name": "go",
+          "active": true
+        },
+        "lua": {
+          "title": "Lua",
+          "ext": "lua",
+          "comment": {
+            "line": "--"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "srcfeature": false,
+          "deps": {
+            "dkjson": {
+              "active": true,
+              "version": "2.5",
+              "kind": "prod"
+            }
+          },
+          "name": "lua",
+          "active": true
+        },
+        "php": {
+          "title": "PHP",
+          "ext": "php",
+          "comment": {
+            "line": "//"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "srcfeature": false,
+          "deps": {},
+          "name": "php",
+          "active": true
+        },
+        "py": {
+          "title": "Python",
+          "ext": "py",
+          "comment": {
+            "line": "#"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "srcfeature": false,
+          "deps": {
+            "requests": {
+              "active": true,
+              "version": "2.33",
+              "kind": "prod"
+            }
+          },
+          "name": "py",
+          "active": true
+        },
+        "rb": {
+          "title": "Ruby",
+          "ext": "rb",
+          "comment": {
+            "line": "#"
+          },
+          "module": {
+            "name": "close-approach-data"
+          },
+          "srcfeature": false,
+          "deps": {
+            "voxgig-struct": {
+              "active": true,
+              "version": "0.0.10",
+              "kind": "prod"
+            },
+            "json": {
+              "active": true,
+              "version": "0",
+              "kind": "prod"
+            }
+          },
+          "name": "rb",
+          "active": true
+        }
+      },
+      "option": {}
+    },
+    "def": {
+      "desc": ""
+    },
+    "api": {
+      "guide": {},
+      "entity": {}
+    }
+  },
+  "name__orig": "close-approach-data",
+  "Name": "CloseApproachData",
+  "name_": "close_approach_data",
+  "name-": "close-approach-data",
+  "NAME": "CLOSE-APPROACH-DATA"
+}
