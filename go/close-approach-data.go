@@ -1,10 +1,10 @@
 package voxgigcloseapproachdatasdk
 
 import (
-	"github.com/voxgig-sdk/close-approach-data-sdk/core"
-	"github.com/voxgig-sdk/close-approach-data-sdk/entity"
-	"github.com/voxgig-sdk/close-approach-data-sdk/feature"
-	_ "github.com/voxgig-sdk/close-approach-data-sdk/utility"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/core"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/entity"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/feature"
+	_ "github.com/voxgig-sdk/close-approach-data-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

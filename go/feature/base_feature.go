@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/close-approach-data-sdk/core"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/core"
 )
 
 type BaseFeature struct {

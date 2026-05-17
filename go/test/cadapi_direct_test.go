@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/close-approach-data-sdk"
-	"github.com/voxgig-sdk/close-approach-data-sdk/core"
+	sdk "github.com/voxgig-sdk/close-approach-data-sdk/go"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/core"
 )
 
 func TestCadapiDirect(t *testing.T) {

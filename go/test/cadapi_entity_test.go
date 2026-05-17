@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/close-approach-data-sdk"
-	"github.com/voxgig-sdk/close-approach-data-sdk/core"
+	sdk "github.com/voxgig-sdk/close-approach-data-sdk/go"
+	"github.com/voxgig-sdk/close-approach-data-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/close-approach-data-sdk/go/utility/struct"
 )
 
 func TestCadapiEntity(t *testing.T) {
