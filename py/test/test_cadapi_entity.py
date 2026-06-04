@@ -92,7 +92,6 @@ def _cadapi_basic_setup(extra):
         "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": idmap,
         "CLOSEAPPROACHDATA_TEST_LIVE": "FALSE",
         "CLOSEAPPROACHDATA_TEST_EXPLAIN": "FALSE",
-        "CLOSEAPPROACHDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _cadapi_basic_setup(extra):
     if env.get("CLOSEAPPROACHDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CLOSEAPPROACHDATA_APIKEY"),
             },
             extra or {},
         ])

@@ -17,8 +17,28 @@ main: {
       ]
       title: "Close Approach Data API"
       version: "1.5"
+      tagline: "Query close-approach data for asteroids and comets from NASA JPL's Small-Body Database"
+      homepage: "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+      docs_url: "https://ssd-api.jpl.nasa.gov/doc/cad.html"
+      license_short: "Public NASA/JPL data; attribution requested, fair-use only"
+      license_md: `- Data and service provided by [NASA JPL Solar System Dynamics](https://ssd.jpl.nasa.gov/) / CNEOS.
+- Attribution as the "NASA/JPL SBDB Close Approach Data API" is requested when redistributing results.
+- Fair-use policy applies: serial (non-parallel) requests, no embedding the live API in third-party websites, and best-effort availability.
+- Response formats can change without notice; check the \`signature\` object in each payload for the API version.`
+      about_md: `The Close Approach Data (CAD) API is part of NASA Jet Propulsion Laboratory's [Solar System Dynamics / SSD-CNEOS API suite](https://ssd-api.jpl.nasa.gov/), exposing the same close-approach catalogue that powers JPL's Small-Body Database (SBDB) lookup tools.
+
+What you get from the API:
+
+- Past and predicted close approaches of asteroids and comets to Earth (default) or any of Mercury through Neptune, the Moon, or Pluto.
+- Per-approach records including designation (\`des\`), orbit solution id (\`orbit_id\`), Julian date and calendar date of closest approach (\`jd\`, \`cd\`), nominal/minimum/maximum approach distance (\`dist\`, \`dist_min\`, \`dist_max\`), relative and v-infinity velocities (\`v_rel\`, \`v_inf\`), time uncertainty (\`t_sigma_f\`), absolute magnitude (\`h\`), and optional diameter and full object name.
+- Filtering by date range, distance, absolute magnitude, v-infinity, orbit class (e.g. \`ATE\`, \`APO\`, \`AMO\`), and boolean flags for NEO / PHA / NEA / comet subsets, plus selection by \`des\` or SPK-ID.
+- Sorting and pagination via \`sort\`, \`limit\`, and \`limit-from\`.
+
+The endpoint is \`GET https://ssd-api.jpl.nasa.gov/cad.api\` and returns JSON. Distances are reported in astronomical units (AU) or lunar distances (LD), velocities in km/s, diameters in km, and magnitudes in mag. No API key or authentication is required, but CORS is not enabled, so browser clients must proxy requests.`
+      entity_desc: {
+        cadapi: "Close-approach records for asteroids and comets passing near Earth or another major body, served from `GET /cad.api` with date, distance, magnitude, velocity and object-class filters."
+      }
+      auth: false
     }
   }
-}
-
 }

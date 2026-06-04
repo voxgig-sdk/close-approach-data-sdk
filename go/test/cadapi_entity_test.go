@@ -119,7 +119,6 @@ func cadapiBasicSetup(extra map[string]any) *entityTestSetup {
 		"CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": idmap,
 		"CLOSEAPPROACHDATA_TEST_LIVE":      "FALSE",
 		"CLOSEAPPROACHDATA_TEST_EXPLAIN":   "FALSE",
-		"CLOSEAPPROACHDATA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CLOSEAPPROACHDATA_TEST_CADAPI_ENTID"])
@@ -130,7 +129,6 @@ func cadapiBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["CLOSEAPPROACHDATA_APIKEY"],
 			},
 			extra,
 		})

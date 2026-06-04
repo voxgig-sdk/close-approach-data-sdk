@@ -68,14 +68,12 @@ function cadapi_direct_setup($mockres)
     $env = Runner::env_override([
         "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID" => [],
         "CLOSEAPPROACHDATA_TEST_LIVE" => "FALSE",
-        "CLOSEAPPROACHDATA_APIKEY" => "NONE",
     ]);
 
     $live = $env["CLOSEAPPROACHDATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CLOSEAPPROACHDATA_APIKEY"],
         ];
         $client = new CloseApproachDataSDK($merged_opts);
         return [

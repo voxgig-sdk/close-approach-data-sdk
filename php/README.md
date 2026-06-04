@@ -20,9 +20,7 @@ loading a specific record.
 <?php
 require_once 'closeapproachdata_sdk.php';
 
-$client = new CloseApproachDataSDK([
-    "apikey" => getenv("CLOSE-APPROACH-DATA_APIKEY"),
-]);
+$client = new CloseApproachDataSDK([]);
 ```
 
 ### 2. List cadapis
@@ -119,7 +117,6 @@ Create a `.env.local` file at the project root:
 
 ```
 CLOSE-APPROACH-DATA_TEST_LIVE=TRUE
-CLOSE-APPROACH-DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -142,7 +139,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
