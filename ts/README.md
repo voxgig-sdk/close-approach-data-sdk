@@ -10,7 +10,7 @@ The TypeScript SDK for the CloseApproachData API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install close-approach-data
+npm install @voxgig-sdk/close-approach-data
 ```
 ## Tutorial: your first API call
 

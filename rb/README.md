@@ -10,13 +10,13 @@ The Ruby SDK for the CloseApproachData API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install close-approach-data-sdk
+gem install voxgig-sdk-close-approach-data
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "close-approach-data-sdk"
+gem "voxgig-sdk-close-approach-data"
 ```
 
 Then run:

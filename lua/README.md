@@ -10,7 +10,7 @@ The Lua SDK for the CloseApproachData API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install close-approach-data-sdk
+luarocks install voxgig-sdk-close-approach-data
 ```
 
 If the module is not yet published, add the source directory to

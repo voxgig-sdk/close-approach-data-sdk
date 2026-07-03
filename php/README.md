@@ -10,7 +10,7 @@ The PHP SDK for the CloseApproachData API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/close-approach-data-sdk
+composer require voxgig-sdk/close-approach-data
 ```
 
 

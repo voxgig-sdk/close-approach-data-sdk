@@ -10,7 +10,7 @@ The Python SDK for the CloseApproachData API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install close-approach-data-sdk
+pip install voxgig-sdk-close-approach-data
 ```
 
 Or install from source:
