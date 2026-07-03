@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID': idmap,
     'CLOSE_APPROACH_DATA_TEST_LIVE': 'FALSE',
     'CLOSE_APPROACH_DATA_TEST_EXPLAIN': 'FALSE',
+    'CLOSE_APPROACH_DATA_APIKEY': 'NONE',
   })
 
   idmap = env['CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CloseApproachDataSDK(merge([
       {
+        apikey: env.CLOSE_APPROACH_DATA_APIKEY,
       },
       extra
     ]))

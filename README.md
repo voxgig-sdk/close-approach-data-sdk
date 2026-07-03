@@ -1,21 +1,8 @@
 # CloseApproachData SDK
 
-Query close-approach data for asteroids and comets from NASA JPL's Small-Body Database
+Close Approach Data API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Close Approach Data API
-
-The Close Approach Data (CAD) API is part of NASA Jet Propulsion Laboratory's [Solar System Dynamics / SSD-CNEOS API suite](https://ssd-api.jpl.nasa.gov/), exposing the same close-approach catalogue that powers JPL's Small-Body Database (SBDB) lookup tools.
-
-What you get from the API:
-
-- Past and predicted close approaches of asteroids and comets to Earth (default) or any of Mercury through Neptune, the Moon, or Pluto.
-- Per-approach records including designation (`des`), orbit solution id (`orbit_id`), Julian date and calendar date of closest approach (`jd`, `cd`), nominal/minimum/maximum approach distance (`dist`, `dist_min`, `dist_max`), relative and v-infinity velocities (`v_rel`, `v_inf`), time uncertainty (`t_sigma_f`), absolute magnitude (`h`), and optional diameter and full object name.
-- Filtering by date range, distance, absolute magnitude, v-infinity, orbit class (e.g. `ATE`, `APO`, `AMO`), and boolean flags for NEO / PHA / NEA / comet subsets, plus selection by `des` or SPK-ID.
-- Sorting and pagination via `sort`, `limit`, and `limit-from`.
-
-The endpoint is `GET https://ssd-api.jpl.nasa.gov/cad.api` and returns JSON. Distances are reported in astronomical units (AU) or lunar distances (LD), velocities in km/s, diameters in km, and magnitudes in mag. No API key or authentication is required, but CORS is not enabled, so browser clients must proxy requests.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install close-approach-data-sdk
 luarocks install close-approach-data-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CloseApproachDataSDK } from 'close-approach-data'
 
-const client = new CloseApproachDataSDK({})
+const client = new CloseApproachDataSDK({
+  apikey: process.env.CLOSE-APPROACH-DATA_APIKEY,
+})
 
 // List all cadapis
 const cadapis = await client.Cadapi().list()
+console.log(cadapis.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Cadapi** | Close-approach records for asteroids and comets passing near Earth or another major body, served from `GET /cad.api` with date, distance, magnitude, velocity and object-class filters. | `/cad.api` |
+| **Cadapi** |  | `/cad.api` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from closeapproachdata_sdk import CloseApproachDataSDK
 
-client = CloseApproachDataSDK({})
+client = CloseApproachDataSDK({
+    "apikey": os.environ.get("CLOSE-APPROACH-DATA_APIKEY"),
+})
 
 # List all cadapis
-cadapis, err = client.Cadapi(None).list(None, None)
+cadapis, err = client.Cadapi().list()
+print(cadapis)
 ```
 
 ### PHP
@@ -125,10 +118,13 @@ cadapis, err = client.Cadapi(None).list(None, None)
 <?php
 require_once 'closeapproachdata_sdk.php';
 
-$client = new CloseApproachDataSDK([]);
+$client = new CloseApproachDataSDK([
+    "apikey" => getenv("CLOSE-APPROACH-DATA_APIKEY"),
+]);
 
 // List all cadapis
-[$cadapis, $err] = $client->Cadapi(null)->list(null, null);
+[$cadapis, $err] = $client->Cadapi()->list();
+print_r($cadapis);
 ```
 
 ### Golang
@@ -136,10 +132,13 @@ $client = new CloseApproachDataSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/close-approach-data-sdk/go"
 
-client := sdk.NewCloseApproachDataSDK(map[string]any{})
+client := sdk.NewCloseApproachDataSDK(map[string]any{
+    "apikey": os.Getenv("CLOSE-APPROACH-DATA_APIKEY"),
+})
 
 // List all cadapis
 cadapis, err := client.Cadapi(nil).List(nil, nil)
+fmt.Println(cadapis)
 ```
 
 ### Ruby
@@ -147,10 +146,13 @@ cadapis, err := client.Cadapi(nil).List(nil, nil)
 ```ruby
 require_relative "CloseApproachData_sdk"
 
-client = CloseApproachDataSDK.new({})
+client = CloseApproachDataSDK.new({
+  "apikey" => ENV["CLOSE-APPROACH-DATA_APIKEY"],
+})
 
 # List all cadapis
-cadapis, err = client.Cadapi(nil).list(nil, nil)
+cadapis, err = client.Cadapi().list
+puts cadapis
 ```
 
 ### Lua
@@ -158,10 +160,13 @@ cadapis, err = client.Cadapi(nil).list(nil, nil)
 ```lua
 local sdk = require("close-approach-data_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CLOSE-APPROACH-DATA_APIKEY"),
+})
 
 -- List all cadapis
-local cadapis, err = client:Cadapi(nil):list(nil, nil)
+local cadapis, err = client:Cadapi():list()
+print(cadapis)
 ```
 
 ## Unit testing in offline mode
@@ -180,25 +185,21 @@ const result = await client.Cadapi().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CloseApproachDataSDK.test(None, None)
-result, err = client.Cadapi(None).load(
-    {"id": "test01"}, None
-)
+client = CloseApproachDataSDK.test()
+result, err = client.Cadapi().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CloseApproachDataSDK::test(null, null);
-[$result, $err] = $client->Cadapi(null)->load(
-    ["id" => "test01"], null
-);
+$client = CloseApproachDataSDK::test();
+[$result, $err] = $client->Cadapi()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Cadapi(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -207,19 +208,15 @@ result, err := client.Cadapi(nil).Load(
 ### Ruby
 
 ```ruby
-client = CloseApproachDataSDK.test(nil, nil)
-result, err = client.Cadapi(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CloseApproachDataSDK.test
+result, err = client.Cadapi().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Cadapi(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Cadapi():load({ id = "test01" })
 ```
 
 ## How it works
@@ -323,15 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Close Approach Data API
-
-- Upstream: [https://ssd-api.jpl.nasa.gov/doc/cad.html](https://ssd-api.jpl.nasa.gov/doc/cad.html)
-
-- Data and service provided by [NASA JPL Solar System Dynamics](https://ssd.jpl.nasa.gov/) / CNEOS.
-- Attribution as the "NASA/JPL SBDB Close Approach Data API" is requested when redistributing results.
-- Fair-use policy applies: serial (non-parallel) requests, no embedding the live API in third-party websites, and best-effort availability.
-- Response formats can change without notice; check the `signature` object in each payload for the API version.
 
 ---
 

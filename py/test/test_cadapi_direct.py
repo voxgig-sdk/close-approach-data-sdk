@@ -61,12 +61,14 @@ def _cadapi_direct_setup(mockres):
     env = runner.env_override({
         "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": {},
         "CLOSEAPPROACHDATA_TEST_LIVE": "FALSE",
+        "CLOSEAPPROACHDATA_APIKEY": "NONE",
     })
 
     live = env.get("CLOSEAPPROACHDATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("CLOSEAPPROACHDATA_APIKEY"),
         }
         client = CloseApproachDataSDK(merged_opts)
         return {

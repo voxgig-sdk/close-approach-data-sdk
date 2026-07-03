@@ -63,12 +63,14 @@ function cadapi_direct_setup(mockres)
   local env = runner.env_override({
     ["CLOSEAPPROACHDATA_TEST_CADAPI_ENTID"] = {},
     ["CLOSEAPPROACHDATA_TEST_LIVE"] = "FALSE",
+    ["CLOSEAPPROACHDATA_APIKEY"] = "NONE",
   })
 
   local live = env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["CLOSEAPPROACHDATA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

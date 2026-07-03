@@ -93,12 +93,14 @@ func cadapiDirectSetup(mockres any) *cadapiDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": map[string]any{},
 		"CLOSEAPPROACHDATA_TEST_LIVE":    "FALSE",
+		"CLOSEAPPROACHDATA_APIKEY":       "NONE",
 	})
 
 	live := env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["CLOSEAPPROACHDATA_APIKEY"],
 		}
 		client := sdk.NewCloseApproachDataSDK(mergedOpts)
 

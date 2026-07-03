@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CLOSEAPPROACHDATA_TEST_CADAPI_ENTID': {},
     'CLOSEAPPROACHDATA_TEST_LIVE': 'FALSE',
+    'CLOSEAPPROACHDATA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CLOSEAPPROACHDATA_TEST_LIVE
 
   if (live) {
     const client = new CloseApproachDataSDK({
+      apikey: env.CLOSEAPPROACHDATA_APIKEY,
     })
 
     let idmap: any = env['CLOSEAPPROACHDATA_TEST_CADAPI_ENTID']
