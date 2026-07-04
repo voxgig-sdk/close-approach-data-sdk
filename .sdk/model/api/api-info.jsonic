@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "NASA JPL SBDB"
         url: "https://ssd-api.jpl.nasa.gov/doc/cad.html"

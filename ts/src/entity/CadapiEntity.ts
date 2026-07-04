@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Cadapi,
+  CadapiListMatch,
+} from '../CloseApproachDataTypes'
 
 // TODO: needs Entity superclass
-class CadapiEntity extends CloseApproachDataEntityBase {
+class CadapiEntity extends CloseApproachDataEntityBase<Cadapi> {
 
   constructor(client: CloseApproachDataSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class CadapiEntity extends CloseApproachDataEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CadapiListMatch, ctrl?: Control): Promise<Cadapi[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class CadapiEntity extends CloseApproachDataEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Cadapi[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

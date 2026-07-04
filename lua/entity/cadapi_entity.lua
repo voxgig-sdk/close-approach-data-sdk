@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch CadapiListMatch
+---@param ctrl? table
+---@return Cadapi[]
+---@return string? err
 function CadapiEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

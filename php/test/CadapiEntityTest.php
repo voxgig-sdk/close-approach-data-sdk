@@ -50,8 +50,7 @@ class CadapiEntityTest extends TestCase
         $cadapi_ref01_ent = $client->Cadapi(null);
         $cadapi_ref01_match = [];
 
-        [$cadapi_ref01_list_result, $err] = $cadapi_ref01_ent->list($cadapi_ref01_match, null);
-        $this->assertNull($err);
+        $cadapi_ref01_list_result = $cadapi_ref01_ent->list($cadapi_ref01_match, null);
         $this->assertIsArray($cadapi_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function cadapi_basic_setup($extra)
         "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID" => $idmap,
         "CLOSEAPPROACHDATA_TEST_LIVE" => "FALSE",
         "CLOSEAPPROACHDATA_TEST_EXPLAIN" => "FALSE",
-        "CLOSEAPPROACHDATA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function cadapi_basic_setup($extra)
     if ($env["CLOSEAPPROACHDATA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CLOSEAPPROACHDATA_APIKEY"],
             ],
             $extra ?? [],
         ]);

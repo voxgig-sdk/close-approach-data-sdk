@@ -43,8 +43,7 @@ class CadapiEntityTest < Minitest::Test
     cadapi_ref01_ent = client.Cadapi(nil)
     cadapi_ref01_match = {}
 
-    cadapi_ref01_list_result, err = cadapi_ref01_ent.list(cadapi_ref01_match, nil)
-    assert_nil err
+    cadapi_ref01_list_result = cadapi_ref01_ent.list(cadapi_ref01_match, nil)
     assert cadapi_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def cadapi_basic_setup(extra)
     "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID" => idmap,
     "CLOSEAPPROACHDATA_TEST_LIVE" => "FALSE",
     "CLOSEAPPROACHDATA_TEST_EXPLAIN" => "FALSE",
-    "CLOSEAPPROACHDATA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def cadapi_basic_setup(extra)
   if env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CLOSEAPPROACHDATA_APIKEY"],
       },
       extra || {},
     ])

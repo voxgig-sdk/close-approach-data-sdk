@@ -92,7 +92,6 @@ function cadapi_basic_setup(extra)
     ["CLOSEAPPROACHDATA_TEST_CADAPI_ENTID"] = idmap,
     ["CLOSEAPPROACHDATA_TEST_LIVE"] = "FALSE",
     ["CLOSEAPPROACHDATA_TEST_EXPLAIN"] = "FALSE",
-    ["CLOSEAPPROACHDATA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function cadapi_basic_setup(extra)
   if env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["CLOSEAPPROACHDATA_APIKEY"],
       },
       extra or {},
     })

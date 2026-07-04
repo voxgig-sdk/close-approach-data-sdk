@@ -2,6 +2,8 @@
 
 import { CadapiEntity } from './entity/CadapiEntity'
 
+export type * from './CloseApproachDataTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class CloseApproachDataSDK {
 
 
 
+  _cadapi?: CadapiEntity
+
+  // Idiomatic facade: `client.cadapi.list()` / `client.cadapi.load({ id })`.
+  get cadapi(): CadapiEntity {
+    return (this._cadapi ??= new CadapiEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.cadapi` instead. */
   Cadapi(data?: any) {
     const self = this
     return new CadapiEntity(self,data)

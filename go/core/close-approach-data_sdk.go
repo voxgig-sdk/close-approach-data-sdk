@@ -245,6 +245,9 @@ func (sdk *CloseApproachDataSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Cadapi returns a Cadapi entity bound to this client.
+// Idiomatic usage: client.Cadapi(nil).List(nil, nil) or
+// client.Cadapi(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CloseApproachDataSDK) Cadapi(data map[string]any) CloseApproachDataEntity {
 	return NewCadapiEntityFunc(sdk, data)
 }

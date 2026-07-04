@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:cadapi():list() / client:cadapi():load({ id = ... })
+function CloseApproachDataSDK:cadapi(data)
+  local EntityMod = require("entity.cadapi_entity")
+  if data == nil then
+    if self._cadapi == nil then
+      self._cadapi = EntityMod.new(self, nil)
+    end
+    return self._cadapi
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:cadapi() instead.
 function CloseApproachDataSDK:Cadapi(data)
   local EntityMod = require("entity.cadapi_entity")
   return EntityMod.new(self, data)

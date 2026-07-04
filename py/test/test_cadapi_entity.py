@@ -50,8 +50,7 @@ class TestCadapiEntity:
         cadapi_ref01_ent = client.Cadapi(None)
         cadapi_ref01_match = {}
 
-        cadapi_ref01_list_result, err = cadapi_ref01_ent.list(cadapi_ref01_match, None)
-        assert err is None
+        cadapi_ref01_list_result = cadapi_ref01_ent.list(cadapi_ref01_match, None)
         assert isinstance(cadapi_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _cadapi_basic_setup(extra):
         "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": idmap,
         "CLOSEAPPROACHDATA_TEST_LIVE": "FALSE",
         "CLOSEAPPROACHDATA_TEST_EXPLAIN": "FALSE",
-        "CLOSEAPPROACHDATA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _cadapi_basic_setup(extra):
     if env.get("CLOSEAPPROACHDATA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CLOSEAPPROACHDATA_APIKEY"),
             },
             extra or {},
         ])

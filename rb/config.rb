@@ -15,9 +15,6 @@ module CloseApproachDataConfig
       },
       "options" => {
         "base" => "https://ssd-api.jpl.nasa.gov",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
