@@ -26,9 +26,11 @@ import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data'
 
 const client = new CloseApproachDataSDK()
 
-// List all cadapis
-const cadapis = await client.cadapi.list()
-console.log(cadapis.data)
+// List all cadapis (returns Cadapi[])
+const cadapis = await client.Cadapi().list()
+for (const cadapi of cadapis) {
+  console.log(cadapi)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from closeapproachdata_sdk import CloseApproachDataSDK
 
 client = CloseApproachDataSDK()
 
-# List all cadapis
-cadapis = client.cadapi.list()
-print(cadapis)
+# List all cadapis (returns a list, raises on error)
+cadapis = client.Cadapi().list({})
+for cadapi in cadapis:
+    print(cadapi)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'closeapproachdata_sdk.php';
 
 $client = new CloseApproachDataSDK();
 
-// List all cadapis (throws on error)
-$cadapis = $client->cadapi()->list();
+// List all cadapis (returns an array; throws on error)
+$cadapis = $client->Cadapi()->list();
 print_r($cadapis);
 ```
 
@@ -120,8 +123,8 @@ require_relative "CloseApproachData_sdk"
 
 client = CloseApproachDataSDK.new
 
-# List all cadapis
-cadapis = client.cadapi.list
+# List all cadapis (returns an Array; raises on error)
+cadapis = client.Cadapi.list
 puts cadapis
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("close-approach-data_sdk")
 local client = sdk.new()
 
 -- List all cadapis
-local cadapis, err = client:cadapi():list()
+local cadapis, err = client:Cadapi():list()
 print(cadapis)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CloseApproachDataSDK.test()
-const result = await client.cadapi.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const cadapi = await client.Cadapi().load({ id: 'test01' })
+// cadapi is a bare Cadapi populated with mock data
+console.log(cadapi)
 ```
 
 ### Python
 
 ```python
 client = CloseApproachDataSDK.test()
-result = client.cadapi.load({"id": "test01"})
+cadapi = client.Cadapi().load({"id": "test01"})
+print(cadapi)
 ```
 
 ### PHP
 
 ```php
-$client = CloseApproachDataSDK::test();
-$result = $client->cadapi()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CloseApproachDataSDK::test([
+    "entity" => ["cadapi" => ["test01" => ["id" => "test01"]]],
+]);
+$cadapi = $client->Cadapi()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.Cadapi(nil).Load(
 ### Ruby
 
 ```ruby
-client = CloseApproachDataSDK.test
-result = client.cadapi.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CloseApproachDataSDK.test({
+  "entity" => { "cadapi" => { "test01" => { "id" => "test01" } } },
+})
+cadapi = client.Cadapi.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:cadapi():load({ id = "test01" })
+local result, err = client:Cadapi():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

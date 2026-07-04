@@ -109,7 +109,7 @@ Alias for `CloseApproachDataSDK.test()`.
 ## CadapiEntity
 
 ```ts
-const cadapi = client.cadapi
+const cadapi = client.Cadapi()
 ```
 
 ### Fields
@@ -129,7 +129,7 @@ const cadapi = client.cadapi
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.cadapi.list()
+const results = await client.Cadapi().list()
 ```
 
 ### Common Methods

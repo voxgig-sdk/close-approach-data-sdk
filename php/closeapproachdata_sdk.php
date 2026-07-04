@@ -233,10 +233,10 @@ class CloseApproachDataSDK
 
     private $_cadapi = null;
 
-    // Idiomatic facade: $client->cadapi()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cadapi() (PHP method
-    // names are case-insensitive).
-    public function cadapi($data = null)
+    // Canonical facade: $client->Cadapi()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cadapi()
+    // resolves here too.
+    public function Cadapi($data = null)
     {
         require_once __DIR__ . '/entity/cadapi_entity.php';
         if ($data === null) {

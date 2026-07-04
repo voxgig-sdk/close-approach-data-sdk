@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CadapiEntity
 
 ```php
-$cadapi = $client->cadapi();
+$cadapi = $client->Cadapi();
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ $cadapi = $client->cadapi();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->cadapi()->list([]);
+$results = $client->Cadapi()->list([]);
 ```
 
 ### Common Methods

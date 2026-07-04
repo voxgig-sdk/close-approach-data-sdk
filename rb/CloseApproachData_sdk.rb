@@ -208,13 +208,7 @@ class CloseApproachDataSDK
   end
 
 
-  # Idiomatic facade: client.cadapi.list / client.cadapi.load({ "id" => ... })
-  def cadapi
-    require_relative 'entity/cadapi_entity'
-    @cadapi ||= CadapiEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.cadapi instead.
+  # Canonical facade: client.Cadapi.list / client.Cadapi.load({ "id" => ... })
   def Cadapi(data = nil)
     require_relative 'entity/cadapi_entity'
     CadapiEntity.new(self, data)

@@ -29,18 +29,16 @@ require_once 'closeapproachdata_sdk.php';
 $client = new CloseApproachDataSDK();
 ```
 
-### 2. List cadapis
+### 2. List cadapi records
 
 ```php
 try {
-    $result = $client->cadapi()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Cadapi records — iterate directly.
+    $cadapis = $client->Cadapi()->list();
+    foreach ($cadapis as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CloseApproachDataSDK::test();
+$client = CloseApproachDataSDK::test([
+    "entity" => ["cadapi" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->cadapi()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$cadapi = $client->Cadapi()->load(["id" => "test01"]);
+print_r($cadapi);
 ```
 
 ### Use a custom fetch function
@@ -232,7 +234,7 @@ API path: `/cad.api`
 
 ### Cadapi
 
-Create an instance: `const cadapi = client.cadapi`
+Create an instance: `$cadapi = $client->Cadapi();`
 
 #### Operations
 
@@ -252,8 +254,9 @@ Create an instance: `const cadapi = client.cadapi`
 
 #### Example: List
 
-```ts
-const cadapis = await client.cadapi.list()
+```php
+// list() returns an array of Cadapi records (throws on error).
+$cadapis = $client->Cadapi()->list();
 ```
 
 
@@ -328,7 +331,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$cadapi = $client->cadapi();
+$cadapi = $client->Cadapi();
 $cadapi->load(["id" => "example_id"]);
 
 // $cadapi->dataGet() now returns the loaded cadapi data

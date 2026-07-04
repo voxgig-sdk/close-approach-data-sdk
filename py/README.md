@@ -31,14 +31,16 @@ from closeapproachdata_sdk import CloseApproachDataSDK
 client = CloseApproachDataSDK()
 ```
 
-### 2. List cadapis
+### 2. List cadapi records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.cadapi.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cadapis = client.Cadapi().list({})
+    for cadapi in cadapis:
+        print(cadapi)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CloseApproachDataSDK.test()
 
-result = client.cadapi.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+cadapi = client.Cadapi().load({"id": "test01"})
+# cadapi contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -224,7 +227,7 @@ API path: `/cad.api`
 
 ### Cadapi
 
-Create an instance: `const cadapi = client.cadapi`
+Create an instance: `cadapi = client.Cadapi()`
 
 #### Operations
 
@@ -244,8 +247,8 @@ Create an instance: `const cadapi = client.cadapi`
 
 #### Example: List
 
-```ts
-const cadapis = await client.cadapi.list()
+```python
+cadapis = client.Cadapi().list({})
 ```
 
 
@@ -319,7 +322,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-cadapi = client.cadapi
+cadapi = client.Cadapi()
 cadapi.load({"id": "example_id"})
 
 # cadapi.data_get() now returns the loaded cadapi data

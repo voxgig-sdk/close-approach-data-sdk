@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## CadapiEntity
 
 ```ruby
-cadapi = client.cadapi
+cadapi = client.Cadapi
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ cadapi = client.cadapi
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.cadapi.list(nil)
+results = client.Cadapi.list(nil)
 ```
 
 ### Common Methods

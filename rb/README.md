@@ -28,16 +28,14 @@ require_relative "CloseApproachData_sdk"
 client = CloseApproachDataSDK.new
 ```
 
-### 2. List cadapis
+### 2. List cadapi records
 
 ```ruby
 begin
-  result = client.cadapi.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Cadapi records — iterate directly.
+  cadapis = client.Cadapi.list
+  cadapis.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CloseApproachDataSDK.test
+client = CloseApproachDataSDK.test({
+  "entity" => { "cadapi" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.cadapi.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+cadapi = client.Cadapi.load({ "id" => "test01" })
+puts cadapi
 ```
 
 ### Use a custom fetch function
@@ -227,7 +229,7 @@ API path: `/cad.api`
 
 ### Cadapi
 
-Create an instance: `const cadapi = client.cadapi`
+Create an instance: `cadapi = client.Cadapi`
 
 #### Operations
 
@@ -247,8 +249,9 @@ Create an instance: `const cadapi = client.cadapi`
 
 #### Example: List
 
-```ts
-const cadapis = await client.cadapi.list()
+```ruby
+# list returns an Array of Cadapi records (raises on error).
+cadapis = client.Cadapi.list
 ```
 
 
@@ -323,7 +326,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-cadapi = client.cadapi
+cadapi = client.Cadapi
 cadapi.load({ "id" => "example_id" })
 
 # cadapi.data_get now returns the loaded cadapi data

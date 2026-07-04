@@ -220,25 +220,15 @@ class CloseApproachDataSDK:
         }
 
 
-    @property
-    def cadapi(self):
-        """Idiomatic facade: client.cadapi.list() / client.cadapi.load({"id": ...})."""
-        from entity.cadapi_entity import CadapiEntity
-        cached = getattr(self, "_cadapi", None)
-        if cached is None:
-            cached = CadapiEntity(self, None)
-            self._cadapi = cached
-        return cached
-
-    def Cadapi(self, data=None):
-        # Deprecated: use client.cadapi instead.
+    def Cadapi(self, data=None) -> "CadapiEntity":
+        """Entity factory: client.Cadapi().list({}) / client.Cadapi().load({"id": ...})."""
         from entity.cadapi_entity import CadapiEntity
         return CadapiEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CloseApproachDataSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class CloseApproachDataSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.cadapi_entity import CadapiEntity

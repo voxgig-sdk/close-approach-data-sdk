@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CadapiEntity
 
 ```lua
-local cadapi = client:cadapi(nil)
+local cadapi = client:Cadapi(nil)
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ local cadapi = client:cadapi(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:cadapi():list()
+local results, err = client:Cadapi():list()
 ```
 
 ### Common Methods

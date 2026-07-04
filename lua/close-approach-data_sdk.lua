@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:cadapi():list() / client:cadapi():load({ id = ... })
-function CloseApproachDataSDK:cadapi(data)
+-- Idiomatic facade: client:Cadapi():list() / client:Cadapi():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CloseApproachDataSDK:Cadapi(data)
   local EntityMod = require("entity.cadapi_entity")
   if data == nil then
     if self._cadapi == nil then
@@ -253,12 +254,6 @@ function CloseApproachDataSDK:cadapi(data)
     end
     return self._cadapi
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:cadapi() instead.
-function CloseApproachDataSDK:Cadapi(data)
-  local EntityMod = require("entity.cadapi_entity")
   return EntityMod.new(self, data)
 end
 

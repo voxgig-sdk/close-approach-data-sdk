@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CadapiEntity
 
 ```python
-cadapi = client.cadapi
+cadapi = client.Cadapi()
 ```
 
 ### Fields
@@ -100,7 +100,9 @@ cadapi = client.cadapi
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.cadapi.list({})
+results = client.Cadapi().list({})
+for cadapi in results:
+    print(cadapi)
 ```
 
 ### Common Methods
