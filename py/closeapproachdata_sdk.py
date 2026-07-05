@@ -221,7 +221,7 @@ class CloseApproachDataSDK:
 
 
     def Cadapi(self, data=None) -> "CadapiEntity":
-        """Entity factory: client.Cadapi().list({}) / client.Cadapi().load({"id": ...})."""
+        """Entity factory: client.Cadapi().list() / client.Cadapi().load({"id": ...})."""
         from entity.cadapi_entity import CadapiEntity
         return CadapiEntity(self, data)
 

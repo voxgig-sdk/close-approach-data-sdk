@@ -8,7 +8,7 @@ Complete API reference for the CloseApproachData Python SDK.
 ### Constructor
 
 ```python
-from close-approach-data_sdk import CloseApproachDataSDK
+from closeapproachdata_sdk import CloseApproachDataSDK
 
 client = CloseApproachDataSDK(options)
 ```
@@ -87,20 +87,20 @@ cadapi = client.Cadapi()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$NUMBER`` | Yes |  |
-| `data` | ``$ARRAY`` | No |  |
-| `field` | ``$ARRAY`` | No |  |
-| `signature` | ``$OBJECT`` | Yes |  |
-| `total` | ``$NUMBER`` | No |  |
+| `count` | `float` | Yes |  |
+| `data` | `list` | No |  |
+| `field` | `list` | No |  |
+| `signature` | `dict` | Yes |  |
+| `total` | `float` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cadapi().list({})
+results = client.Cadapi().list()
 for cadapi in results:
     print(cadapi)
 ```

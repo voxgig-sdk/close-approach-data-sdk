@@ -17,8 +17,7 @@ type Cadapi struct {
 	Total *float64 `json:"total,omitempty"`
 }
 
-// CadapiListMatch mirrors the cadapi fields as an all-optional match
-// filter (Go analog of Partial<Cadapi>).
+// CadapiListMatch is the typed request payload for Cadapi.ListTyped.
 type CadapiListMatch struct {
 	Count *float64 `json:"count,omitempty"`
 	Data *[]any `json:"data,omitempty"`

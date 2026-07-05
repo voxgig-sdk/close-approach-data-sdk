@@ -66,8 +66,12 @@ class CadapiEntity:
     
 
     
-    def list(self, reqmatch: CadapiListMatch, ctrl=None) -> list[Cadapi]:
+    def list(self, reqmatch=None, ctrl=None) -> list[Cadapi]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Cadapi().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

@@ -97,11 +97,11 @@ cadapi := client.Cadapi(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$NUMBER`` | Yes |  |
-| `data` | ``$ARRAY`` | No |  |
-| `field` | ``$ARRAY`` | No |  |
-| `signature` | ``$OBJECT`` | Yes |  |
-| `total` | ``$NUMBER`` | No |  |
+| `count` | `float64` | Yes |  |
+| `data` | `[]any` | No |  |
+| `field` | `[]any` | No |  |
+| `signature` | `map[string]any` | Yes |  |
+| `total` | `float64` | No |  |
 
 ### Operations
 

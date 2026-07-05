@@ -14,6 +14,11 @@
 ---@field total? number
 
 ---@class CadapiListMatch
+---@field count? number
+---@field data? table
+---@field field? table
+---@field signature? table
+---@field total? number
 
 local M = {}
 

@@ -13,5 +13,11 @@ export interface Cadapi {
   total?: number
 }
 
-export type CadapiListMatch = Partial<Cadapi>
+export interface CadapiListMatch {
+  count?: number
+  data?: any[]
+  field?: any[]
+  signature?: Record<string, any>
+  total?: number
+}
 

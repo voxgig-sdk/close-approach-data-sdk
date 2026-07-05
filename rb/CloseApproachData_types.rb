@@ -33,7 +33,7 @@ Cadapi = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cadapi#list (any subset of Cadapi fields).
+# Request payload for Cadapi#list.
 #
 # @!attribute [rw] count
 #   @return [Float, nil]

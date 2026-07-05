@@ -116,11 +116,11 @@ const cadapi = client.Cadapi()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$NUMBER`` | Yes |  |
-| `data` | ``$ARRAY`` | No |  |
-| `field` | ``$ARRAY`` | No |  |
-| `signature` | ``$OBJECT`` | Yes |  |
-| `total` | ``$NUMBER`` | No |  |
+| `count` | `number` | Yes |  |
+| `data` | `any[]` | No |  |
+| `field` | `any[]` | No |  |
+| `signature` | `Record<string, any>` | Yes |  |
+| `total` | `number` | No |  |
 
 ### Operations
 

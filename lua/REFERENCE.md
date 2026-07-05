@@ -90,11 +90,11 @@ local cadapi = client:Cadapi(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | ``$NUMBER`` | Yes |  |
-| `data` | ``$ARRAY`` | No |  |
-| `field` | ``$ARRAY`` | No |  |
-| `signature` | ``$OBJECT`` | Yes |  |
-| `total` | ``$NUMBER`` | No |  |
+| `count` | `number` | Yes |  |
+| `data` | `table` | No |  |
+| `field` | `table` | No |  |
+| `signature` | `table` | Yes |  |
+| `total` | `number` | No |  |
 
 ### Operations
 

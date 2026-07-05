@@ -22,7 +22,7 @@ class Cadapi
     public ?float $total = null;
 }
 
-/** Match filter for Cadapi#list (any subset of Cadapi fields). */
+/** Request payload for Cadapi#list. */
 class CadapiListMatch
 {
     public ?float $count = null;
