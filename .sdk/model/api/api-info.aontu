@@ -16,9 +16,9 @@ main: {
           url: "https://ssd-api.jpl.nasa.gov"
         }
       ]
+      summary: "This API provides access to current close-approach data for all asteroids and comets in JPL's SBDB (Small-Body DataBase)."
       title: "Close Approach Data API"
       version: "1.5"
+      website: "https://ssd-api.jpl.nasa.gov/doc/cad.html"
     }
   }
-}
-
