@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- CloseApproachData SDK configuration
 
 local function make_config()
   return {

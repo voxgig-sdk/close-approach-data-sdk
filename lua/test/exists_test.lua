@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- CloseApproachData SDK exists test
 
 local sdk = require("close-approach-data_sdk")
 
