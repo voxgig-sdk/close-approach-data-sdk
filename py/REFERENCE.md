@@ -89,7 +89,7 @@ cadapi = client.Cadapi()
 | --- | --- | --- | --- |
 | `count` | `float` | Yes |  |
 | `data` | `list` | No |  |
-| `field` | `list` | No |  |
+| `fields` | `list` | No |  |
 | `signature` | `dict` | Yes |  |
 | `total` | `float` | No |  |
 

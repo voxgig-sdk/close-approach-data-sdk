@@ -95,7 +95,7 @@ cadapi = client.Cadapi
 | --- | --- | --- | --- |
 | `count` | `Float` | Yes |  |
 | `data` | `Array` | No |  |
-| `field` | `Array` | No |  |
+| `fields` | `Array` | No |  |
 | `signature` | `Hash` | Yes |  |
 | `total` | `Float` | No |  |
 

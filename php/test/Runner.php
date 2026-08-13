@@ -43,8 +43,8 @@ class CloseApproachDataTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CLOSEAPPROACHDATA_TEST_LIVE');
-        $override = self::getenv('CLOSEAPPROACHDATA_TEST_OVERRIDE');
+        $live = self::getenv('CLOSE_APPROACH_DATA_TEST_LIVE');
+        $override = self::getenv('CLOSE_APPROACH_DATA_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CloseApproachDataTestRunner
             }
         }
 
-        $explain = self::getenv('CLOSEAPPROACHDATA_TEST_EXPLAIN');
+        $explain = self::getenv('CLOSE_APPROACH_DATA_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CLOSEAPPROACHDATA_TEST_EXPLAIN'] = $explain;
+            $m['CLOSE_APPROACH_DATA_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

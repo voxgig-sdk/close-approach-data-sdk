@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CloseApproachDataSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CloseApproachDataSDK.test({
+  entity: {
+    cadapi: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const cadapis = await client.Cadapi().list()
-// cadapis is an array of bare Cadapi records populated with mock data
+// cadapis is an array of Cadapi entities, populated with mock data
+// — call cadapis[0].data() for the record itself
 console.log(cadapis)
 ```
 
@@ -110,7 +119,7 @@ import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data'
 
 const client = new CloseApproachDataSDK()
 
-// List all cadapis (returns Cadapi[])
+// List all cadapis (returns CadapiEntity[] — .data() for the record)
 const cadapis = await client.Cadapi().list()
 for (const cadapi of cadapis) {
   console.log(cadapi)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://ssd-api.jpl.nasa.gov/doc/cad.html](https://ssd-api.jpl.nasa.gov/doc/cad.html)
 

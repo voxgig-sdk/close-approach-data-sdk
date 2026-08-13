@@ -100,7 +100,7 @@ fmt.Println(cadapi.GetName()) // "cadapi"
 | --- | --- | --- | --- |
 | `count` | `float64` | Yes |  |
 | `data` | `[]any` | No |  |
-| `field` | `[]any` | No |  |
+| `fields` | `[]any` | No |  |
 | `signature` | `map[string]any` | Yes |  |
 | `total` | `float64` | No |  |
 

@@ -262,7 +262,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"count"` |  |
 | `"data"` |  |
-| `"field"` |  |
+| `"fields"` |  |
 | `"signature"` |  |
 | `"total"` |  |
 
@@ -291,7 +291,7 @@ Create an instance: `cadapi := client.Cadapi(nil)`
 | --- | --- | --- |
 | `count` | `float64` |  |
 | `data` | `[]any` |  |
-| `field` | `[]any` |  |
+| `fields` | `[]any` |  |
 | `signature` | `map[string]any` |  |
 | `total` | `float64` |  |
 

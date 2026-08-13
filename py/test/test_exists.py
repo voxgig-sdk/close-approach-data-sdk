@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CloseApproachData SDK exists test
 
 import pytest
 from closeapproachdata_sdk import CloseApproachDataSDK

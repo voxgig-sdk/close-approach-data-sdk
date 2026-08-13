@@ -41,7 +41,7 @@ module CloseApproachDataConfig
             },
             {
               "active" => true,
-              "name" => "field",
+              "name" => "fields",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 2,
@@ -314,6 +314,7 @@ module CloseApproachDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cad.api",
                   "parts" => [

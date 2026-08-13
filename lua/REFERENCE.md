@@ -92,7 +92,7 @@ local cadapi = client:Cadapi(nil)
 | --- | --- | --- | --- |
 | `count` | `number` | Yes |  |
 | `data` | `table` | No |  |
-| `field` | `table` | No |  |
+| `fields` | `table` | No |  |
 | `signature` | `table` | Yes |  |
 | `total` | `number` | No |  |
 

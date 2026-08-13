@@ -16,7 +16,7 @@ main: kit: entity: cadapi: {
       type: "`$ARRAY`"
     }
     {
-      name: "field"
+      name: "fields"
       req: false
       type: "`$ARRAY`"
     }

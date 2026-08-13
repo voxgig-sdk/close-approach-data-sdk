@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.CLOSEAPPROACHDATA_TEST_LIVE ||
-    'TRUE' === process.env.CLOSEAPPROACHDATA_TEST_OVERRIDE
+    'TRUE' === process.env.CLOSE_APPROACH_DATA_TEST_LIVE ||
+    'TRUE' === process.env.CLOSE_APPROACH_DATA_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.CLOSEAPPROACHDATA_TEST_EXPLAIN = process.env.CLOSEAPPROACHDATA_TEST_EXPLAIN || m.CLOSEAPPROACHDATA_TEST_EXPLAIN
+  m.CLOSE_APPROACH_DATA_TEST_EXPLAIN = process.env.CLOSE_APPROACH_DATA_TEST_EXPLAIN || m.CLOSE_APPROACH_DATA_TEST_EXPLAIN
 
   return m
 }

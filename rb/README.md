@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CloseApproachDataSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 cadapi = client.Cadapi.list()
 puts cadapi
 ```
@@ -238,7 +239,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `count` |  |
 | `data` |  |
-| `field` |  |
+| `fields` |  |
 | `signature` |  |
 | `total` |  |
 
@@ -267,7 +268,7 @@ Create an instance: `cadapi = client.Cadapi`
 | --- | --- | --- |
 | `count` | `Float` |  |
 | `data` | `Array` |  |
-| `field` | `Array` |  |
+| `fields` | `Array` |  |
 | `signature` | `Hash` |  |
 | `total` | `Float` |  |
 

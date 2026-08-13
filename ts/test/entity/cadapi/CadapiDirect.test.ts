@@ -19,11 +19,15 @@ import {
 describe('CadapiDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CLOSEAPPROACHDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CLOSEAPPROACHDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CLOSE_APPROACH_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOSE_APPROACH_DATA_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new CloseApproachDataSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'CLOSEAPPROACHDATA_TEST_CADAPI_ENTID': {},
-    'CLOSEAPPROACHDATA_TEST_LIVE': 'FALSE',
+    'CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID': {},
+    'CLOSE_APPROACH_DATA_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.CLOSEAPPROACHDATA_TEST_LIVE
+  const live = 'TRUE' === env.CLOSE_APPROACH_DATA_TEST_LIVE
 
   if (live) {
     const client = new CloseApproachDataSDK({
     })
 
-    let idmap: any = env['CLOSEAPPROACHDATA_TEST_CADAPI_ENTID']
+    let idmap: any = env['CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

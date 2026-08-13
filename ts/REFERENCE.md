@@ -118,7 +118,7 @@ const cadapi = client.Cadapi()
 | --- | --- | --- | --- |
 | `count` | `number` | Yes |  |
 | `data` | `any[]` | No |  |
-| `field` | `any[]` | No |  |
+| `fields` | `any[]` | No |  |
 | `signature` | `Record<string, any>` | Yes |  |
 | `total` | `number` | No |  |
 

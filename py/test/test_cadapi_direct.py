@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from closeapproachdata_sdk.utility.voxgig_struct import voxgig_struct as vs
 from closeapproachdata_sdk import CloseApproachDataSDK
-from core import helpers
+from closeapproachdata_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _cadapi_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID": {},
-        "CLOSEAPPROACHDATA_TEST_LIVE": "FALSE",
+        "CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID": {},
+        "CLOSE_APPROACH_DATA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CLOSEAPPROACHDATA_TEST_LIVE") == "TRUE"
+    live = env.get("CLOSE_APPROACH_DATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

@@ -37,7 +37,7 @@ class CadapiEntity extends CloseApproachDataEntityBase<Cadapi> {
 
 
 
-  async list(this: any, reqmatch?: CadapiListMatch, ctrl?: Control): Promise<Cadapi[]> {
+  async list(this: any, reqmatch?: CadapiListMatch, ctrl?: Control): Promise<CadapiEntity[]> {
 
     const utility = this._utility
 

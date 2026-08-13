@@ -4,21 +4,21 @@
       "CADAPI00": {
         "count": 50,
         "data": [],
-        "field": [],
+        "fields": [],
         "signature": {},
         "total": 54
       },
       "CADAPI01": {
         "count": 100,
         "data": [],
-        "field": [],
+        "fields": [],
         "signature": {},
         "total": 104
       },
       "CADAPI02": {
         "count": 150,
         "data": [],
-        "field": [],
+        "fields": [],
         "signature": {},
         "total": 154
       }
@@ -29,7 +29,7 @@
       "cadapi_ref01": {
         "count": 200,
         "data": [],
-        "field": [],
+        "fields": [],
         "signature": {},
         "total": 204
       }

@@ -23,8 +23,8 @@ module CloseApproachDataTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CLOSEAPPROACHDATA_TEST_LIVE")
-    override = getenv("CLOSEAPPROACHDATA_TEST_OVERRIDE")
+    live = getenv("CLOSE_APPROACH_DATA_TEST_LIVE")
+    override = getenv("CLOSE_APPROACH_DATA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CloseApproachDataTestRunner
       end
     end
 
-    explain = getenv("CLOSEAPPROACHDATA_TEST_EXPLAIN")
-    m["CLOSEAPPROACHDATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CLOSE_APPROACH_DATA_TEST_EXPLAIN")
+    m["CLOSE_APPROACH_DATA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

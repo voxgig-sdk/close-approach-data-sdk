@@ -8,7 +8,7 @@
 export interface Cadapi {
   count: number
   data?: any[]
-  field?: any[]
+  fields?: any[]
   signature: Record<string, any>
   total?: number
 }
@@ -16,7 +16,7 @@ export interface Cadapi {
 export interface CadapiListMatch {
   count?: number
   data?: any[]
-  field?: any[]
+  fields?: any[]
   signature?: Record<string, any>
   total?: number
 }

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CloseApproachDataControl
-from core.error import CloseApproachDataError
-from core.result import CloseApproachDataResult
-from core.spec import CloseApproachDataSpec
+from closeapproachdata_sdk.config import make_config
+from closeapproachdata_sdk.features import _make_feature
+from closeapproachdata_sdk.core.control import CloseApproachDataControl
+from closeapproachdata_sdk.core.error import CloseApproachDataError
+from closeapproachdata_sdk.core.result import CloseApproachDataResult
+from closeapproachdata_sdk.core.spec import CloseApproachDataSpec
 
 
 # True when this SDK was generated with the named feature.

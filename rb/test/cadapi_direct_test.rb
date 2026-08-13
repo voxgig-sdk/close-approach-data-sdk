@@ -60,11 +60,11 @@ def cadapi_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "CLOSEAPPROACHDATA_TEST_CADAPI_ENTID" => {},
-    "CLOSEAPPROACHDATA_TEST_LIVE" => "FALSE",
+    "CLOSE_APPROACH_DATA_TEST_CADAPI_ENTID" => {},
+    "CLOSE_APPROACH_DATA_TEST_LIVE" => "FALSE",
   })
 
-  live = env["CLOSEAPPROACHDATA_TEST_LIVE"] == "TRUE"
+  live = env["CLOSE_APPROACH_DATA_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

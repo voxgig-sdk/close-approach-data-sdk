@@ -94,7 +94,7 @@ $cadapi = $client->Cadapi();
 | --- | --- | --- | --- |
 | `count` | `float` | Yes |  |
 | `data` | `array` | No |  |
-| `field` | `array` | No |  |
+| `fields` | `array` | No |  |
 | `signature` | `array` | Yes |  |
 | `total` | `float` | No |  |
 

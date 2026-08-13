@@ -16,7 +16,7 @@
 # @!attribute [rw] data
 #   @return [Array, nil]
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Array, nil]
 #
 # @!attribute [rw] signature
@@ -27,7 +27,7 @@
 Cadapi = Struct.new(
   :count,
   :data,
-  :field,
+  :fields,
   :signature,
   :total,
   keyword_init: true
@@ -41,7 +41,7 @@ Cadapi = Struct.new(
 # @!attribute [rw] data
 #   @return [Array, nil]
 #
-# @!attribute [rw] field
+# @!attribute [rw] fields
 #   @return [Array, nil]
 #
 # @!attribute [rw] signature
@@ -52,7 +52,7 @@ Cadapi = Struct.new(
 CadapiListMatch = Struct.new(
   :count,
   :data,
-  :field,
+  :fields,
   :signature,
   :total,
   keyword_init: true

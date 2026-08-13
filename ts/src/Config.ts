@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'CloseApproachData',
   }
 
 
@@ -70,7 +70,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "field",
+          "name": "fields",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
@@ -343,6 +343,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cad.api",
               "parts": [

@@ -16,11 +16,11 @@
 import pytest
 
 from closeapproachdata_sdk import CloseApproachDataSDK
-from core.error import CloseApproachDataError
-from core.result import CloseApproachDataResult
-from core.response import CloseApproachDataResponse
-from core.spec import CloseApproachDataSpec
-from feature.base_feature import CloseApproachDataBaseFeature
+from closeapproachdata_sdk.core.error import CloseApproachDataError
+from closeapproachdata_sdk.core.result import CloseApproachDataResult
+from closeapproachdata_sdk.core.response import CloseApproachDataResponse
+from closeapproachdata_sdk.core.spec import CloseApproachDataSpec
+from closeapproachdata_sdk.feature.base_feature import CloseApproachDataBaseFeature
 
 
 def _client():

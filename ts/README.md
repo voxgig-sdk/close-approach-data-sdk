@@ -35,7 +35,9 @@ const client = new CloseApproachDataSDK()
 
 ### 2. List cadapi records
 
-`list()` resolves to an array of Cadapi objects — iterate it directly:
+`list()` resolves to an array of Cadapi ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cadapis = await client.Cadapi().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = CloseApproachDataSDK.test()
 
 const cadapi = await client.Cadapi().list()
-// cadapi is a bare entity populated with mock response data
+// cadapi is the entity, populated with mock response data
+// — call cadapi.data() for the record itself
 console.log(cadapi)
 ```
 
@@ -286,7 +289,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `count` |  |
 | `data` |  |
-| `field` |  |
+| `fields` |  |
 | `signature` |  |
 | `total` |  |
 
@@ -315,7 +318,7 @@ Create an instance: `const cadapi = client.Cadapi()`
 | --- | --- | --- |
 | `count` | `number` |  |
 | `data` | `any[]` |  |
-| `field` | `any[]` |  |
+| `fields` | `any[]` |  |
 | `signature` | `Record<string, any>` |  |
 | `total` | `number` |  |
 

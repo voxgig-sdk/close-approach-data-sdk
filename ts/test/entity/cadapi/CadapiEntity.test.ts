@@ -26,8 +26,8 @@ import {
 describe('CadapiEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CLOSEAPPROACHDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CLOSEAPPROACHDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CLOSE_APPROACH_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOSE_APPROACH_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CloseApproachDataSDK.test()
@@ -63,7 +63,7 @@ describe('CadapiEntity', async () => {
     const cadapi_ref01_ent = client.Cadapi()
     const cadapi_ref01_match: any = {}
 
-    const cadapi_ref01_list = await cadapi_ref01_ent.list(cadapi_ref01_match)
+    const cadapi_ref01_list = (await cadapi_ref01_ent.list(cadapi_ref01_match)).map((e: any) => e.data())
 
 
   })

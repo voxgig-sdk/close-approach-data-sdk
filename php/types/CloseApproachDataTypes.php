@@ -17,7 +17,7 @@ class Cadapi
 {
     public float $count;
     public ?array $data = null;
-    public ?array $field = null;
+    public ?array $fields = null;
     public array $signature;
     public ?float $total = null;
 }
@@ -27,7 +27,7 @@ class CadapiListMatch
 {
     public ?float $count = null;
     public ?array $data = null;
-    public ?array $field = null;
+    public ?array $fields = null;
     public ?array $signature = null;
     public ?float $total = null;
 }

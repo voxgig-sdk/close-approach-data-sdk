@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local cadapi, err = client:Cadapi():load()
+    local cadapi, err = client:Cadapi():list()
     if err then error(err) end
-    -- cadapi is the loaded record
+    -- cadapi is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -233,7 +233,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `count` |  |
 | `data` |  |
-| `field` |  |
+| `fields` |  |
 | `signature` |  |
 | `total` |  |
 
@@ -262,7 +262,7 @@ Create an instance: `local cadapi = client:Cadapi(nil)`
 | --- | --- | --- |
 | `count` | `number` |  |
 | `data` | `table` |  |
-| `field` | `table` |  |
+| `fields` | `table` |  |
 | `signature` | `table` |  |
 | `total` | `number` |  |
 
