@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from closeapproachdata_sdk.config import make_config
+from closeapproachdata_sdk.config import shared_config
 from closeapproachdata_sdk.features import _make_feature
 from closeapproachdata_sdk.core.control import CloseApproachDataControl
 from closeapproachdata_sdk.core.error import CloseApproachDataError
@@ -24,7 +24,7 @@ from closeapproachdata_sdk.core.spec import CloseApproachDataSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

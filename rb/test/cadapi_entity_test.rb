@@ -33,7 +33,7 @@ class CadapiEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = CloseApproachDataConfig.make_config
+    cfg = CloseApproachDataConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = CloseApproachDataSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class CloseApproachDataConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,39 +54,31 @@ class CloseApproachDataConfig
         'cadapi' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'count',
               'req' => true,
               'type' => '`$NUMBER`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'data',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 1,
+              'union' => [
+                'branches' => 2,
+                'count' => 1,
+                'depth' => 2,
+              ],
             ],
             [
-              'active' => true,
               'name' => 'fields',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'signature',
               'req' => true,
               'type' => '`$OBJECT`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'total',
-              'req' => false,
               'type' => '`$NUMBER`',
-              'index$' => 4,
             ],
           ],
           'name' => 'cadapi',
@@ -73,248 +88,191 @@ class CloseApproachDataConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 'Earth',
                         'kind' => 'query',
                         'name' => 'body',
                         'orig' => 'body',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'ATE',
                         'kind' => 'query',
                         'name' => 'class',
                         'orig' => 'class',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'comet',
                         'orig' => 'comet',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2100-01-01',
                         'kind' => 'query',
                         'name' => 'date_max',
                         'orig' => 'date_max',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2018-01-01',
                         'kind' => 'query',
                         'name' => 'date_min',
                         'orig' => 'date_min',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '433',
                         'kind' => 'query',
                         'name' => 'des',
                         'orig' => 'des',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'diameter',
                         'orig' => 'diameter',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => '0.2',
                         'kind' => 'query',
                         'name' => 'dist_max',
                         'orig' => 'dist_max',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '0.05',
                         'kind' => 'query',
                         'name' => 'dist_min',
                         'orig' => 'dist_min',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'fullname',
                         'orig' => 'fullname',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'h_max',
                         'orig' => 'h_max',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'h_min',
                         'orig' => 'h_min',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'kind',
                         'orig' => 'kind',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'limit',
                         'orig' => 'limit',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'limit_from',
                         'orig' => 'limit_from',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'min_dist_max',
                         'orig' => 'min_dist_max',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'min_dist_min',
                         'orig' => 'min_dist_min',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'nea',
                         'orig' => 'nea',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'nea_comet',
                         'orig' => 'nea_comet',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => true,
                         'kind' => 'query',
                         'name' => 'neo',
                         'orig' => 'neo',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'pha',
                         'orig' => 'pha',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'date',
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 2000433,
                         'kind' => 'query',
                         'name' => 'spk',
                         'orig' => 'spk',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => false,
                         'kind' => 'query',
                         'name' => 'total_only',
                         'orig' => 'total_only',
-                        'reqd' => false,
                         'type' => '`$BOOLEAN`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'v_inf_max',
                         'orig' => 'v_inf_max',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'v_inf_min',
                         'orig' => 'v_inf_min',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'v_rel_max',
                         'orig' => 'v_rel_max',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'v_rel_min',
                         'orig' => 'v_rel_min',
-                        'reqd' => false,
                         'type' => '`$NUMBER`',
                       ],
                     ],
@@ -361,10 +319,8 @@ class CloseApproachDataConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

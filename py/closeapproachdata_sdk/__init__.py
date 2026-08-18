@@ -23,8 +23,8 @@ class CloseApproachDataSDK:
         utility = CloseApproachDataUtility()
         self._utility = utility
 
-        from closeapproachdata_sdk.config import make_config
-        config = make_config()
+        from closeapproachdata_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

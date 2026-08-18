@@ -15,7 +15,7 @@ require_relative "../CloseApproachData_sdk"
 module CloseApproachDataFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CloseApproachDataConfig.make_config["feature"]
+    f = CloseApproachDataConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

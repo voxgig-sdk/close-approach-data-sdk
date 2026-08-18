@@ -28,7 +28,7 @@ class CloseApproachDataSDK
     utility = CloseApproachDataUtility.new
     @_utility = utility
 
-    config = CloseApproachDataConfig.make_config
+    config = CloseApproachDataConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

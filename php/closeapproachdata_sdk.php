@@ -40,7 +40,7 @@ class CloseApproachDataSDK
         $utility = new CloseApproachDataUtility();
         $this->_utility = $utility;
 
-        $config = CloseApproachDataConfig::make_config();
+        $config = CloseApproachDataConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -40,7 +40,7 @@ class CadapiEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = CloseApproachDataConfig::make_config();
+        $cfg = CloseApproachDataConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = CloseApproachDataSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

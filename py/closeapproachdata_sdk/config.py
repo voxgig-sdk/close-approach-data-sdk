@@ -1,7 +1,30 @@
 # CloseApproachData SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "CloseApproachData",
@@ -26,39 +49,31 @@ def make_config():
       "cadapi": {
         "fields": [
           {
-            "active": True,
             "name": "count",
             "req": True,
             "type": "`$NUMBER`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "data",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 1,
+            "union": {
+              "branches": 2,
+              "count": 1,
+              "depth": 2,
+            },
           },
           {
-            "active": True,
             "name": "fields",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "signature",
             "req": True,
             "type": "`$OBJECT`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "total",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 4,
           },
         ],
         "name": "cadapi",
@@ -68,248 +83,191 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "example": "Earth",
                       "kind": "query",
                       "name": "body",
                       "orig": "body",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "ATE",
                       "kind": "query",
                       "name": "class",
                       "orig": "class",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "comet",
                       "orig": "comet",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": "2100-01-01",
                       "kind": "query",
                       "name": "date_max",
                       "orig": "date_max",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "2018-01-01",
                       "kind": "query",
                       "name": "date_min",
                       "orig": "date_min",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "433",
                       "kind": "query",
                       "name": "des",
                       "orig": "des",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "diameter",
                       "orig": "diameter",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": "0.2",
                       "kind": "query",
                       "name": "dist_max",
                       "orig": "dist_max",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "0.05",
                       "kind": "query",
                       "name": "dist_min",
                       "orig": "dist_min",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "fullname",
                       "orig": "fullname",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "h_max",
                       "orig": "h_max",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "h_min",
                       "orig": "h_min",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "kind",
                       "orig": "kind",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "limit",
                       "orig": "limit",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "limit_from",
                       "orig": "limit_from",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "min_dist_max",
                       "orig": "min_dist_max",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "min_dist_min",
                       "orig": "min_dist_min",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "nea",
                       "orig": "nea",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "nea_comet",
                       "orig": "nea_comet",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": True,
                       "kind": "query",
                       "name": "neo",
                       "orig": "neo",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "pha",
                       "orig": "pha",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": "date",
                       "kind": "query",
                       "name": "sort",
                       "orig": "sort",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": 2000433,
                       "kind": "query",
                       "name": "spk",
                       "orig": "spk",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "total_only",
                       "orig": "total_only",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "v_inf_max",
                       "orig": "v_inf_max",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "v_inf_min",
                       "orig": "v_inf_min",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "v_rel_max",
                       "orig": "v_rel_max",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "v_rel_min",
                       "orig": "v_rel_min",
-                      "reqd": False,
                       "type": "`$NUMBER`",
                     },
                   ],
@@ -356,10 +314,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {

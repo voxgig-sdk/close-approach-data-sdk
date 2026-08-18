@@ -23,6 +23,7 @@ build = {
   modules = {
     ["close-approach-data_sdk"] = "close-approach-data_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
