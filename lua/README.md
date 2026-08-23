@@ -231,11 +231,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `data` |  |
-| `fields` |  |
+| `count` | Number of records returned |
+| `data` | Array of close-approach records |
+| `fields` | Field names corresponding to data array elements |
 | `signature` |  |
-| `total` |  |
+| `total` | Total number of matching records (when limit is used) |
 
 Operations: List.
 
@@ -260,11 +260,11 @@ Create an instance: `local cadapi = client:Cadapi(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` |  |
-| `data` | `table` |  |
-| `fields` | `table` |  |
+| `count` | `number` | Number of records returned |
+| `data` | `table` | Array of close-approach records |
+| `fields` | `table` | Field names corresponding to data array elements |
 | `signature` | `table` |  |
-| `total` | `number` |  |
+| `total` | `number` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

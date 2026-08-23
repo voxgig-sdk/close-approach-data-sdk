@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "CloseApproachData",
+      slug = "close-approach-data",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,10 +33,12 @@ local function make_config()
           {
             ["name"] = "count",
             ["req"] = true,
+            ["short"] = "Number of records returned",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "data",
+            ["short"] = "Array of close-approach records",
             ["type"] = "`$ARRAY`",
             ["union"] = {
               ["branches"] = 2,
@@ -43,6 +48,7 @@ local function make_config()
           },
           {
             ["name"] = "fields",
+            ["short"] = "Field names corresponding to data array elements",
             ["type"] = "`$ARRAY`",
           },
           {
@@ -52,6 +58,7 @@ local function make_config()
           },
           {
             ["name"] = "total",
+            ["short"] = "Total number of matching records (when limit is used)",
             ["type"] = "`$NUMBER`",
           },
         },

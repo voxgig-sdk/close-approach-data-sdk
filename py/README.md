@@ -243,11 +243,11 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `data` |  |
-| `fields` |  |
+| `count` | Number of records returned |
+| `data` | Array of close-approach records |
+| `fields` | Field names corresponding to data array elements |
 | `signature` |  |
-| `total` |  |
+| `total` | Total number of matching records (when limit is used) |
 
 Operations: List.
 
@@ -272,11 +272,11 @@ Create an instance: `cadapi = client.Cadapi()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `float` |  |
-| `data` | `list` |  |
-| `fields` | `list` |  |
+| `count` | `float` | Number of records returned |
+| `data` | `list` | Array of close-approach records |
+| `fields` | `list` | Field names corresponding to data array elements |
 | `signature` | `dict` |  |
-| `total` | `float` |  |
+| `total` | `float` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

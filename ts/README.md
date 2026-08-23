@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,11 +287,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `data` |  |
-| `fields` |  |
+| `count` | Number of records returned |
+| `data` | Array of close-approach records |
+| `fields` | Field names corresponding to data array elements |
 | `signature` |  |
-| `total` |  |
+| `total` | Total number of matching records (when limit is used) |
 
 Operations: list.
 
@@ -316,11 +316,11 @@ Create an instance: `const cadapi = client.Cadapi()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `number` |  |
-| `data` | `any[]` |  |
-| `fields` | `any[]` |  |
+| `count` | `number` | Number of records returned |
+| `data` | `any[]` | Array of close-approach records |
+| `fields` | `any[]` | Field names corresponding to data array elements |
 | `signature` | `Record<string, any>` |  |
-| `total` | `number` |  |
+| `total` | `number` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

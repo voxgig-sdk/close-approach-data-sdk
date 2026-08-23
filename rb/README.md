@@ -237,11 +237,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `data` |  |
-| `fields` |  |
+| `count` | Number of records returned |
+| `data` | Array of close-approach records |
+| `fields` | Field names corresponding to data array elements |
 | `signature` |  |
-| `total` |  |
+| `total` | Total number of matching records (when limit is used) |
 
 Operations: List.
 
@@ -266,11 +266,11 @@ Create an instance: `cadapi = client.Cadapi`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `Float` |  |
-| `data` | `Array` |  |
-| `fields` | `Array` |  |
+| `count` | `Float` | Number of records returned |
+| `data` | `Array` | Array of close-approach records |
+| `fields` | `Array` | Field names corresponding to data array elements |
 | `signature` | `Hash` |  |
-| `total` | `Float` |  |
+| `total` | `Float` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

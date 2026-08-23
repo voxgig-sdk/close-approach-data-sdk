@@ -90,11 +90,11 @@ local cadapi = client:Cadapi(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | Yes |  |
-| `data` | `table` | No |  |
-| `fields` | `table` | No |  |
+| `count` | `number` | Yes | Number of records returned |
+| `data` | `table` | No | Array of close-approach records |
+| `fields` | `table` | No | Field names corresponding to data array elements |
 | `signature` | `table` | Yes |  |
-| `total` | `number` | No |  |
+| `total` | `number` | No | Total number of matching records (when limit is used) |
 
 ### Operations
 

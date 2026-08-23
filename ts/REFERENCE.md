@@ -116,11 +116,11 @@ const cadapi = client.Cadapi()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `number` | Yes |  |
-| `data` | `any[]` | No |  |
-| `fields` | `any[]` | No |  |
+| `count` | `number` | Yes | Number of records returned |
+| `data` | `any[]` | No | Array of close-approach records |
+| `fields` | `any[]` | No | Field names corresponding to data array elements |
 | `signature` | `Record<string, any>` | Yes |  |
-| `total` | `number` | No |  |
+| `total` | `number` | No | Total number of matching records (when limit is used) |
 
 ### Operations
 

@@ -6,7 +6,7 @@ The Golang SDK for the CloseApproachData API — an entity-oriented client using
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Cadapi(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,11 +260,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"count"` |  |
-| `"data"` |  |
-| `"fields"` |  |
+| `"count"` | Number of records returned |
+| `"data"` | Array of close-approach records |
+| `"fields"` | Field names corresponding to data array elements |
 | `"signature"` |  |
-| `"total"` |  |
+| `"total"` | Total number of matching records (when limit is used) |
 
 Operations: List.
 
@@ -289,11 +289,11 @@ Create an instance: `cadapi := client.Cadapi(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `float64` |  |
-| `data` | `[]any` |  |
-| `fields` | `[]any` |  |
+| `count` | `float64` | Number of records returned |
+| `data` | `[]any` | Array of close-approach records |
+| `fields` | `[]any` | Field names corresponding to data array elements |
 | `signature` | `map[string]any` |  |
-| `total` | `float64` |  |
+| `total` | `float64` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

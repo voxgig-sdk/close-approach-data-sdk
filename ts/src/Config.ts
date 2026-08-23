@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CloseApproachData',
+        slug: "close-approach-data",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -57,10 +68,12 @@ class Config {
         {
           "name": "count",
           "req": true,
+          "short": "Number of records returned",
           "type": "`$NUMBER`"
         },
         {
           "name": "data",
+          "short": "Array of close-approach records",
           "type": "`$ARRAY`",
           "union": {
             "branches": 2,
@@ -70,6 +83,7 @@ class Config {
         },
         {
           "name": "fields",
+          "short": "Field names corresponding to data array elements",
           "type": "`$ARRAY`"
         },
         {
@@ -79,6 +93,7 @@ class Config {
         },
         {
           "name": "total",
+          "short": "Total number of matching records (when limit is used)",
           "type": "`$NUMBER`"
         }
       ],

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "CloseApproachData",
+            "slug": "close-approach-data",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,10 +54,12 @@ def make_config():
           {
             "name": "count",
             "req": True,
+            "short": "Number of records returned",
             "type": "`$NUMBER`",
           },
           {
             "name": "data",
+            "short": "Array of close-approach records",
             "type": "`$ARRAY`",
             "union": {
               "branches": 2,
@@ -64,6 +69,7 @@ def make_config():
           },
           {
             "name": "fields",
+            "short": "Field names corresponding to data array elements",
             "type": "`$ARRAY`",
           },
           {
@@ -73,6 +79,7 @@ def make_config():
           },
           {
             "name": "total",
+            "short": "Total number of matching records (when limit is used)",
             "type": "`$NUMBER`",
           },
         ],

@@ -247,11 +247,11 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `count` |  |
-| `data` |  |
-| `fields` |  |
+| `count` | Number of records returned |
+| `data` | Array of close-approach records |
+| `fields` | Field names corresponding to data array elements |
 | `signature` |  |
-| `total` |  |
+| `total` | Total number of matching records (when limit is used) |
 
 Operations: List.
 
@@ -276,11 +276,11 @@ Create an instance: `$cadapi = $client->Cadapi();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `float` |  |
-| `data` | `array` |  |
-| `fields` | `array` |  |
+| `count` | `float` | Number of records returned |
+| `data` | `array` | Array of close-approach records |
+| `fields` | `array` | Field names corresponding to data array elements |
 | `signature` | `array` |  |
-| `total` | `float` |  |
+| `total` | `float` | Total number of matching records (when limit is used) |
 
 #### Example: List
 

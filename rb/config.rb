@@ -19,6 +19,9 @@ module CloseApproachDataConfig
     {
       "main" => {
         "name" => "CloseApproachData",
+        "slug" => "close-approach-data",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,10 +45,12 @@ module CloseApproachDataConfig
             {
               "name" => "count",
               "req" => true,
+              "short" => "Number of records returned",
               "type" => "`$NUMBER`",
             },
             {
               "name" => "data",
+              "short" => "Array of close-approach records",
               "type" => "`$ARRAY`",
               "union" => {
                 "branches" => 2,
@@ -55,6 +60,7 @@ module CloseApproachDataConfig
             },
             {
               "name" => "fields",
+              "short" => "Field names corresponding to data array elements",
               "type" => "`$ARRAY`",
             },
             {
@@ -64,6 +70,7 @@ module CloseApproachDataConfig
             },
             {
               "name" => "total",
+              "short" => "Total number of matching records (when limit is used)",
               "type" => "`$NUMBER`",
             },
           ],

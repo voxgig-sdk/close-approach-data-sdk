@@ -93,11 +93,11 @@ cadapi = client.Cadapi
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `Float` | Yes |  |
-| `data` | `Array` | No |  |
-| `fields` | `Array` | No |  |
+| `count` | `Float` | Yes | Number of records returned |
+| `data` | `Array` | No | Array of close-approach records |
+| `fields` | `Array` | No | Field names corresponding to data array elements |
 | `signature` | `Hash` | Yes |  |
-| `total` | `Float` | No |  |
+| `total` | `Float` | No | Total number of matching records (when limit is used) |
 
 ### Operations
 

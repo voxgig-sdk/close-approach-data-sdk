@@ -36,12 +36,14 @@
               "active": true,
               "name": "count",
               "req": true,
+              "short": "Number of records returned",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "data",
               "req": false,
+              "short": "Array of close-approach records",
               "type": "`$ARRAY`",
               "union": {
                 "branches": 2,
@@ -53,6 +55,7 @@
               "active": true,
               "name": "fields",
               "req": false,
+              "short": "Field names corresponding to data array elements",
               "type": "`$ARRAY`"
             },
             {
@@ -65,6 +68,7 @@
               "active": true,
               "name": "total",
               "req": false,
+              "short": "Total number of matching records (when limit is used)",
               "type": "`$NUMBER`"
             }
           ],

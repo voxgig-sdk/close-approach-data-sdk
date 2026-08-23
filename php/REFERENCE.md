@@ -92,11 +92,11 @@ $cadapi = $client->Cadapi();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `float` | Yes |  |
-| `data` | `array` | No |  |
-| `fields` | `array` | No |  |
+| `count` | `float` | Yes | Number of records returned |
+| `data` | `array` | No | Array of close-approach records |
+| `fields` | `array` | No | Field names corresponding to data array elements |
 | `signature` | `array` | Yes |  |
-| `total` | `float` | No |  |
+| `total` | `float` | No | Total number of matching records (when limit is used) |
 
 ### Operations
 

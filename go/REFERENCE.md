@@ -98,11 +98,11 @@ fmt.Println(cadapi.GetName()) // "cadapi"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `count` | `float64` | Yes |  |
-| `data` | `[]any` | No |  |
-| `fields` | `[]any` | No |  |
+| `count` | `float64` | Yes | Number of records returned |
+| `data` | `[]any` | No | Array of close-approach records |
+| `fields` | `[]any` | No | Field names corresponding to data array elements |
 | `signature` | `map[string]any` | Yes |  |
-| `total` | `float64` | No |  |
+| `total` | `float64` | No | Total number of matching records (when limit is used) |
 
 ### Operations
 

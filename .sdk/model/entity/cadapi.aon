@@ -8,11 +8,13 @@ main: kit: entity: cadapi: {
     {
       name: "count"
       req: true
+      short: "Number of records returned"
       type: "`$NUMBER`"
     }
     {
       name: "data"
       req: false
+      short: "Array of close-approach records"
       type: "`$ARRAY`"
       union: {
         branches: 2
@@ -23,6 +25,7 @@ main: kit: entity: cadapi: {
     {
       name: "fields"
       req: false
+      short: "Field names corresponding to data array elements"
       type: "`$ARRAY`"
     }
     {
@@ -33,6 +36,7 @@ main: kit: entity: cadapi: {
     {
       name: "total"
       req: false
+      short: "Total number of matching records (when limit is used)"
       type: "`$NUMBER`"
     }
   ]

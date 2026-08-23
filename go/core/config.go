@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CloseApproachData",
+			"slug": "close-approach-data",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,10 +37,12 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "count",
 						"req": true,
+						"short": "Number of records returned",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "data",
+						"short": "Array of close-approach records",
 						"type": "`$ARRAY`",
 						"union": map[string]any{
 							"branches": 2,
@@ -47,6 +52,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "fields",
+						"short": "Field names corresponding to data array elements",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -56,6 +62,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "total",
+						"short": "Total number of matching records (when limit is used)",
 						"type": "`$NUMBER`",
 					},
 				},
