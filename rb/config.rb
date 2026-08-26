@@ -28,6 +28,7 @@ module CloseApproachDataConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
