@@ -25,10 +25,33 @@ class Cadapi
 /** Request payload for Cadapi#list. */
 class CadapiListMatch
 {
-    public ?float $count = null;
-    public ?array $data = null;
-    public ?array $fields = null;
-    public ?array $signature = null;
-    public ?float $total = null;
+    public ?string $body = null;
+    public ?string $class = null;
+    public ?bool $comet = null;
+    public ?string $date_max = null;
+    public ?string $date_min = null;
+    public ?string $des = null;
+    public ?bool $diameter = null;
+    public ?string $dist_max = null;
+    public ?string $dist_min = null;
+    public ?bool $fullname = null;
+    public ?float $h_max = null;
+    public ?float $h_min = null;
+    public ?string $kind = null;
+    public ?int $limit = null;
+    public ?int $limit_from = null;
+    public ?string $min_dist_max = null;
+    public ?string $min_dist_min = null;
+    public ?bool $nea = null;
+    public ?bool $nea_comet = null;
+    public ?bool $neo = null;
+    public ?bool $pha = null;
+    public ?string $sort = null;
+    public ?int $spk = null;
+    public ?bool $total_only = null;
+    public ?float $v_inf_max = null;
+    public ?float $v_inf_min = null;
+    public ?float $v_rel_max = null;
+    public ?float $v_rel_min = null;
 }
 

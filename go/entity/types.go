@@ -23,11 +23,34 @@ type Cadapi struct {
 
 // CadapiListMatch is the typed request payload for Cadapi.ListTyped.
 type CadapiListMatch struct {
-	Count *float64 `json:"count,omitempty"`
-	Data *[]any `json:"data,omitempty"`
-	Fields *[]any `json:"fields,omitempty"`
-	Signature *map[string]any `json:"signature,omitempty"`
-	Total *float64 `json:"total,omitempty"`
+	Body *string `json:"body,omitempty"`
+	Class *string `json:"class,omitempty"`
+	Comet *bool `json:"comet,omitempty"`
+	DateMax *string `json:"date_max,omitempty"`
+	DateMin *string `json:"date_min,omitempty"`
+	Des *string `json:"des,omitempty"`
+	Diameter *bool `json:"diameter,omitempty"`
+	DistMax *string `json:"dist_max,omitempty"`
+	DistMin *string `json:"dist_min,omitempty"`
+	Fullname *bool `json:"fullname,omitempty"`
+	HMax *float64 `json:"h_max,omitempty"`
+	HMin *float64 `json:"h_min,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	LimitFrom *int `json:"limit_from,omitempty"`
+	MinDistMax *string `json:"min_dist_max,omitempty"`
+	MinDistMin *string `json:"min_dist_min,omitempty"`
+	Nea *bool `json:"nea,omitempty"`
+	NeaComet *bool `json:"nea_comet,omitempty"`
+	Neo *bool `json:"neo,omitempty"`
+	Pha *bool `json:"pha,omitempty"`
+	Sort *string `json:"sort,omitempty"`
+	Spk *int `json:"spk,omitempty"`
+	TotalOnly *bool `json:"total_only,omitempty"`
+	VInfMax *float64 `json:"v_inf_max,omitempty"`
+	VInfMin *float64 `json:"v_inf_min,omitempty"`
+	VRelMax *float64 `json:"v_rel_max,omitempty"`
+	VRelMin *float64 `json:"v_rel_min,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the
