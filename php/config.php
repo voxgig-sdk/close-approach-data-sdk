@@ -288,8 +288,10 @@ class CloseApproachDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/cad.api',
-                  'parts' => [
-                    'cad.api',
+                  'segments' => [
+                    [
+                      'lit' => 'cad.api',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -326,6 +328,9 @@ class CloseApproachDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'cad.api',
                   ],
                 ],
               ],

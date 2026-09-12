@@ -274,8 +274,10 @@ module CloseApproachDataConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/cad.api",
-                  "parts" => [
-                    "cad.api",
+                  "segments" => [
+                    {
+                      "lit" => "cad.api",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -313,6 +315,9 @@ module CloseApproachDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "cad.api",
+                  ],
                 },
               ],
             },

@@ -262,8 +262,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/cad.api",
-                ["parts"] = {
-                  "cad.api",
+                ["segments"] = {
+                  {
+                    ["lit"] = "cad.api",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -300,6 +302,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "cad.api",
                 },
               },
             },

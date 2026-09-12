@@ -266,8 +266,10 @@ main: kit: entity: cadapi: {
           }
           method: "GET"
           orig: "/cad.api"
-          parts: [
-            "cad.api"
+          segments: [
+            {
+              lit: "cad.api"
+            }
           ]
           select: {
             exist: [
