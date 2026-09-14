@@ -105,7 +105,7 @@ local results, err = client:Cadapi():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/close-approach-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
 | Python | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
 | PHP | `voxgig-sdk/close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/close-approach-data-sdk/go` | `go get github.com/voxgig-sdk/close-approach-data-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Cadapi():list()
 ### TypeScript
 
 ```ts
-import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data'
+import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data-sdk'
 
 const client = new CloseApproachDataSDK()
 

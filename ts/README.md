@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data'
+import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data-sdk'
 
 const client = new CloseApproachDataSDK()
 ```
@@ -411,7 +411,7 @@ close-approach-data/
 Import the SDK from the package root:
 
 ```ts
-import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data'
+import { CloseApproachDataSDK } from '@voxgig-sdk/close-approach-data-sdk'
 ```
 
 ### Entity state

@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/close-approach-data",
+  "name": "@voxgig-sdk/close-approach-data-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Close Approach Data public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
