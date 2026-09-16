@@ -1,7 +1,10 @@
 # CloseApproachData SDK feature factory
 
 require_relative 'feature/base_feature'
+require_relative 'feature/ratelimit_feature'
+require_relative 'feature/retry_feature'
 require_relative 'feature/test_feature'
+require_relative 'feature/timeout_feature'
 
 
 module CloseApproachDataFeatures
@@ -9,8 +12,14 @@ module CloseApproachDataFeatures
     case name
     when "base"
       CloseApproachDataBaseFeature.new
+    when "ratelimit"
+      CloseApproachDataRatelimitFeature.new
+    when "retry"
+      CloseApproachDataRetryFeature.new
     when "test"
       CloseApproachDataTestFeature.new
+    when "timeout"
+      CloseApproachDataTimeoutFeature.new
     else
       CloseApproachDataBaseFeature.new
     end

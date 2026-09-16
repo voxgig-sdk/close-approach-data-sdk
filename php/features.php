@@ -4,7 +4,10 @@ declare(strict_types=1);
 // CloseApproachData SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CloseApproachDataFeatures
@@ -14,8 +17,14 @@ class CloseApproachDataFeatures
         switch ($name) {
             case "base":
                 return new CloseApproachDataBaseFeature();
+            case "ratelimit":
+                return new CloseApproachDataRatelimitFeature();
+            case "retry":
+                return new CloseApproachDataRetryFeature();
             case "test":
                 return new CloseApproachDataTestFeature();
+            case "timeout":
+                return new CloseApproachDataTimeoutFeature();
             default:
                 return new CloseApproachDataBaseFeature();
         }
@@ -31,7 +40,10 @@ class CloseApproachDataFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
