@@ -105,12 +105,12 @@ local results, err = client:Cadapi():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/close-approach-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
-| Python | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
-| PHP | `voxgig-sdk/close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/close-approach-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/tags) |
+| Python | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/tags) |
+| PHP | `voxgig-sdk/close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/close-approach-data-sdk/go` | `go get github.com/voxgig-sdk/close-approach-data-sdk/go@latest` |
-| Ruby | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
-| Lua | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/releases) |
+| Ruby | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/tags) |
+| Lua | `voxgig-sdk-close-approach-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/close-approach-data-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/close-approach-data-sdk/go-cli` | `go install github.com/voxgig-sdk/close-approach-data-sdk/go-cli/cmd/close-approach-data@latest` |
 | Go MCP server | `github.com/voxgig-sdk/close-approach-data-sdk/go-mcp` | `go get github.com/voxgig-sdk/close-approach-data-sdk/go-mcp@latest` |
 
