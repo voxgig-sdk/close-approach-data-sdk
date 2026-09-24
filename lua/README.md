@@ -43,7 +43,7 @@ local cadapis, err = client:Cadapi():list()
 if err then error(err) end
 
 for _, item in ipairs(cadapis) do
-  print(item["count"])
+  print(item)
 end
 ```
 

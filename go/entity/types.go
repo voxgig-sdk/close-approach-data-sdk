@@ -1,7 +1,7 @@
 // Typed models for the CloseApproachData SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,11 +14,6 @@ import (
 
 // Cadapi is the typed data model for the cadapi entity.
 type Cadapi struct {
-	Count float64 `json:"count"`
-	Data *[]any `json:"data,omitempty"`
-	Fields *[]any `json:"fields,omitempty"`
-	Signature map[string]any `json:"signature"`
-	Total *float64 `json:"total,omitempty"`
 }
 
 // CadapiListMatch is the typed request payload for Cadapi.ListTyped.

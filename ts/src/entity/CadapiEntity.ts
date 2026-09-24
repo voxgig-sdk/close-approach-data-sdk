@@ -19,7 +19,6 @@ import type {
   CadapiListMatch,
 } from '../CloseApproachDataTypes'
 
-// TODO: needs Entity superclass
 class CadapiEntity extends CloseApproachDataEntityBase<Cadapi> {
 
   constructor(client: CloseApproachDataSDK, entopts: any) {

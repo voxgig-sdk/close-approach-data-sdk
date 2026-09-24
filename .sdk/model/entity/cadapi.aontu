@@ -1,0 +1,327 @@
+# Entity: cadapi
+
+main: kit: entity: cadapi: {
+
+  alias: field: {}
+
+  fields: {
+    count: {
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "Number of records returned"
+      t: "`$NUMBER`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      sh: "Array of close-approach records"
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 2
+      }
+    }
+    fields: {
+      h: "Fields"
+      n: "fields"
+      r: false
+      sh: "Field names corresponding to data array elements"
+      t: "`$ARRAY`"
+    }
+    signature: {
+      h: "Signature"
+      n: "signature"
+      r: true
+      t: "`$OBJECT`"
+    }
+    total: {
+      h: "Total"
+      n: "total"
+      r: false
+      sh: "Total number of matching records (when limit is used)"
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "cadapi"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /cad.api"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "Earth"
+                k: "query"
+                n: "body"
+                or: "body"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "ATE"
+                k: "query"
+                n: "class"
+                or: "class"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "comet"
+                or: "comet"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "2100-01-01"
+                k: "query"
+                n: "date_max"
+                or: "date_max"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2018-01-01"
+                k: "query"
+                n: "date_min"
+                or: "date_min"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "433"
+                k: "query"
+                n: "des"
+                or: "des"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "diameter"
+                or: "diameter"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "0.2"
+                k: "query"
+                n: "dist_max"
+                or: "dist_max"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "0.05"
+                k: "query"
+                n: "dist_min"
+                or: "dist_min"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "fullname"
+                or: "fullname"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "h_max"
+                or: "h_max"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "h_min"
+                or: "h_min"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "kind"
+                or: "kind"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "limit_from"
+                or: "limit_from"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "min_dist_max"
+                or: "min_dist_max"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "min_dist_min"
+                or: "min_dist_min"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "nea"
+                or: "nea"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "nea_comet"
+                or: "nea_comet"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: true
+                k: "query"
+                n: "neo"
+                or: "neo"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "pha"
+                or: "pha"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: "date"
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 2000433
+                k: "query"
+                n: "spk"
+                or: "spk"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "total_only"
+                or: "total_only"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "v_inf_max"
+                or: "v_inf_max"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "v_inf_min"
+                or: "v_inf_min"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "v_rel_max"
+                or: "v_rel_max"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "v_rel_min"
+                or: "v_rel_min"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/cad.api"
+          q: {
+            exist: [
+              "body"
+              "class"
+              "comet"
+              "date_max"
+              "date_min"
+              "des"
+              "diameter"
+              "dist_max"
+              "dist_min"
+              "fullname"
+              "h_max"
+              "h_min"
+              "kind"
+              "limit"
+              "limit_from"
+              "min_dist_max"
+              "min_dist_min"
+              "nea"
+              "nea_comet"
+              "neo"
+              "pha"
+              "sort"
+              "spk"
+              "total_only"
+              "v_inf_max"
+              "v_inf_min"
+              "v_rel_max"
+              "v_rel_min"
+            ]
+          }
+          s: [
+            {
+              lit: "cad.api"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

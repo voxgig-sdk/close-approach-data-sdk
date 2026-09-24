@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CadapiEntity = void 0;
 const CloseApproachDataEntityBase_1 = require("../CloseApproachDataEntityBase");
-// TODO: needs Entity superclass
 class CadapiEntity extends CloseApproachDataEntityBase_1.CloseApproachDataEntityBase {
     constructor(client, entopts) {
         super(client, entopts);
