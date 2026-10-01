@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 CloseApproachDataUtility::setRegistrar(function (CloseApproachDataUtility $u): void {
     $u->clean = [CloseApproachDataClean::class, 'call'];
+    $u->clean_add = [CloseApproachDataClean::class, 'add'];
+    $u->clean_explain = [CloseApproachDataDone::class, 'clean_explain'];
     $u->done = [CloseApproachDataDone::class, 'call'];
     $u->make_error = [CloseApproachDataMakeError::class, 'call'];
     $u->feature_add = [CloseApproachDataFeatureAdd::class, 'call'];

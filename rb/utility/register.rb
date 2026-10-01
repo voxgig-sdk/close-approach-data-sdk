@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 CloseApproachDataUtility.registrar = ->(u) {
   u.clean = CloseApproachDataUtilities::Clean
+  u.clean_add = CloseApproachDataUtilities::CleanAdd
+  u.clean_explain = CloseApproachDataUtilities::CleanExplain
   u.done = CloseApproachDataUtilities::Done
   u.make_error = CloseApproachDataUtilities::MakeError
   u.feature_add = CloseApproachDataUtilities::FeatureAdd

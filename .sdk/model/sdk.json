@@ -189,7 +189,7 @@
                         "ex": "2100-01-01",
                         "k": "query",
                         "n": "date_max",
-                        "or": "date_max",
+                        "or": "date-max",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -198,7 +198,7 @@
                         "ex": "2018-01-01",
                         "k": "query",
                         "n": "date_min",
-                        "or": "date_min",
+                        "or": "date-min",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -225,7 +225,7 @@
                         "ex": "0.2",
                         "k": "query",
                         "n": "dist_max",
-                        "or": "dist_max",
+                        "or": "dist-max",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -234,7 +234,7 @@
                         "ex": "0.05",
                         "k": "query",
                         "n": "dist_min",
-                        "or": "dist_min",
+                        "or": "dist-min",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -251,7 +251,7 @@
                         "a": true,
                         "k": "query",
                         "n": "h_max",
-                        "or": "h_max",
+                        "or": "h-max",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -259,7 +259,7 @@
                         "a": true,
                         "k": "query",
                         "n": "h_min",
-                        "or": "h_min",
+                        "or": "h-min",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -283,7 +283,7 @@
                         "a": true,
                         "k": "query",
                         "n": "limit_from",
-                        "or": "limit_from",
+                        "or": "limit-from",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -291,7 +291,7 @@
                         "a": true,
                         "k": "query",
                         "n": "min_dist_max",
-                        "or": "min_dist_max",
+                        "or": "min-dist-max",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -299,7 +299,7 @@
                         "a": true,
                         "k": "query",
                         "n": "min_dist_min",
-                        "or": "min_dist_min",
+                        "or": "min-dist-min",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -317,7 +317,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "nea_comet",
-                        "or": "nea_comet",
+                        "or": "nea-comet",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -362,7 +362,7 @@
                         "ex": false,
                         "k": "query",
                         "n": "total_only",
-                        "or": "total_only",
+                        "or": "total-only",
                         "r": false,
                         "t": "`$BOOLEAN`"
                       },
@@ -370,7 +370,7 @@
                         "a": true,
                         "k": "query",
                         "n": "v_inf_max",
-                        "or": "v_inf_max",
+                        "or": "v-inf-max",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -378,7 +378,7 @@
                         "a": true,
                         "k": "query",
                         "n": "v_inf_min",
-                        "or": "v_inf_min",
+                        "or": "v-inf-min",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -386,7 +386,7 @@
                         "a": true,
                         "k": "query",
                         "n": "v_rel_max",
-                        "or": "v_rel_max",
+                        "or": "v-rel-max",
                         "r": false,
                         "t": "`$NUMBER`"
                       },
@@ -394,7 +394,7 @@
                         "a": true,
                         "k": "query",
                         "n": "v_rel_min",
-                        "or": "v_rel_min",
+                        "or": "v-rel-min",
                         "r": false,
                         "t": "`$NUMBER`"
                       }
@@ -926,7 +926,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

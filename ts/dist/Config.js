@@ -185,14 +185,14 @@ class Config {
                                     },
                                     {
                                         "name": "date_max",
-                                        "orig": "date_max",
+                                        "orig": "date-max",
                                         "type": "`$STRING`",
                                         "kind": "query",
                                         "example": "2100-01-01"
                                     },
                                     {
                                         "name": "date_min",
-                                        "orig": "date_min",
+                                        "orig": "date-min",
                                         "type": "`$STRING`",
                                         "kind": "query",
                                         "example": "2018-01-01"
@@ -213,14 +213,14 @@ class Config {
                                     },
                                     {
                                         "name": "dist_max",
-                                        "orig": "dist_max",
+                                        "orig": "dist-max",
                                         "type": "`$STRING`",
                                         "kind": "query",
                                         "example": "0.2"
                                     },
                                     {
                                         "name": "dist_min",
-                                        "orig": "dist_min",
+                                        "orig": "dist-min",
                                         "type": "`$STRING`",
                                         "kind": "query",
                                         "example": "0.05"
@@ -234,13 +234,13 @@ class Config {
                                     },
                                     {
                                         "name": "h_max",
-                                        "orig": "h_max",
+                                        "orig": "h-max",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "h_min",
-                                        "orig": "h_min",
+                                        "orig": "h-min",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     },
@@ -258,19 +258,19 @@ class Config {
                                     },
                                     {
                                         "name": "limit_from",
-                                        "orig": "limit_from",
+                                        "orig": "limit-from",
                                         "type": "`$INTEGER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "min_dist_max",
-                                        "orig": "min_dist_max",
+                                        "orig": "min-dist-max",
                                         "type": "`$STRING`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "min_dist_min",
-                                        "orig": "min_dist_min",
+                                        "orig": "min-dist-min",
                                         "type": "`$STRING`",
                                         "kind": "query"
                                     },
@@ -283,7 +283,7 @@ class Config {
                                     },
                                     {
                                         "name": "nea_comet",
-                                        "orig": "nea_comet",
+                                        "orig": "nea-comet",
                                         "type": "`$BOOLEAN`",
                                         "kind": "query",
                                         "example": false
@@ -318,32 +318,32 @@ class Config {
                                     },
                                     {
                                         "name": "total_only",
-                                        "orig": "total_only",
+                                        "orig": "total-only",
                                         "type": "`$BOOLEAN`",
                                         "kind": "query",
                                         "example": false
                                     },
                                     {
                                         "name": "v_inf_max",
-                                        "orig": "v_inf_max",
+                                        "orig": "v-inf-max",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "v_inf_min",
-                                        "orig": "v_inf_min",
+                                        "orig": "v-inf-min",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "v_rel_max",
-                                        "orig": "v_rel_max",
+                                        "orig": "v-rel-max",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     },
                                     {
                                         "name": "v_rel_min",
-                                        "orig": "v_rel_min",
+                                        "orig": "v-rel-min",
                                         "type": "`$NUMBER`",
                                         "kind": "query"
                                     }

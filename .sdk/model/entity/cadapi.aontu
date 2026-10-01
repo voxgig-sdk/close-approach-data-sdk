@@ -87,7 +87,7 @@ main: kit: entity: cadapi: {
                 ex: "2100-01-01"
                 k: "query"
                 n: "date_max"
-                or: "date_max"
+                or: "date-max"
                 r: false
                 t: "`$STRING`"
               }
@@ -95,7 +95,7 @@ main: kit: entity: cadapi: {
                 ex: "2018-01-01"
                 k: "query"
                 n: "date_min"
-                or: "date_min"
+                or: "date-min"
                 r: false
                 t: "`$STRING`"
               }
@@ -119,7 +119,7 @@ main: kit: entity: cadapi: {
                 ex: "0.2"
                 k: "query"
                 n: "dist_max"
-                or: "dist_max"
+                or: "dist-max"
                 r: false
                 t: "`$STRING`"
               }
@@ -127,7 +127,7 @@ main: kit: entity: cadapi: {
                 ex: "0.05"
                 k: "query"
                 n: "dist_min"
-                or: "dist_min"
+                or: "dist-min"
                 r: false
                 t: "`$STRING`"
               }
@@ -142,14 +142,14 @@ main: kit: entity: cadapi: {
               {
                 k: "query"
                 n: "h_max"
-                or: "h_max"
+                or: "h-max"
                 r: false
                 t: "`$NUMBER`"
               }
               {
                 k: "query"
                 n: "h_min"
-                or: "h_min"
+                or: "h-min"
                 r: false
                 t: "`$NUMBER`"
               }
@@ -170,21 +170,21 @@ main: kit: entity: cadapi: {
               {
                 k: "query"
                 n: "limit_from"
-                or: "limit_from"
+                or: "limit-from"
                 r: false
                 t: "`$INTEGER`"
               }
               {
                 k: "query"
                 n: "min_dist_max"
-                or: "min_dist_max"
+                or: "min-dist-max"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "min_dist_min"
-                or: "min_dist_min"
+                or: "min-dist-min"
                 r: false
                 t: "`$STRING`"
               }
@@ -200,7 +200,7 @@ main: kit: entity: cadapi: {
                 ex: false
                 k: "query"
                 n: "nea_comet"
-                or: "nea_comet"
+                or: "nea-comet"
                 r: false
                 t: "`$BOOLEAN`"
               }
@@ -240,35 +240,35 @@ main: kit: entity: cadapi: {
                 ex: false
                 k: "query"
                 n: "total_only"
-                or: "total_only"
+                or: "total-only"
                 r: false
                 t: "`$BOOLEAN`"
               }
               {
                 k: "query"
                 n: "v_inf_max"
-                or: "v_inf_max"
+                or: "v-inf-max"
                 r: false
                 t: "`$NUMBER`"
               }
               {
                 k: "query"
                 n: "v_inf_min"
-                or: "v_inf_min"
+                or: "v-inf-min"
                 r: false
                 t: "`$NUMBER`"
               }
               {
                 k: "query"
                 n: "v_rel_max"
-                or: "v_rel_max"
+                or: "v-rel-max"
                 r: false
                 t: "`$NUMBER`"
               }
               {
                 k: "query"
                 n: "v_rel_min"
-                or: "v_rel_min"
+                or: "v-rel-min"
                 r: false
                 t: "`$NUMBER`"
               }
