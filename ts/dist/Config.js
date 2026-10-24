@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -349,37 +350,10 @@ class Config {
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "body",
-                                    "class",
-                                    "comet",
-                                    "date_max",
-                                    "date_min",
-                                    "des",
-                                    "diameter",
-                                    "dist_max",
-                                    "dist_min",
-                                    "fullname",
-                                    "h_max",
-                                    "h_min",
-                                    "kind",
-                                    "limit",
-                                    "limit_from",
-                                    "min_dist_max",
-                                    "min_dist_min",
-                                    "nea",
-                                    "nea_comet",
-                                    "neo",
-                                    "pha",
-                                    "sort",
-                                    "spk",
-                                    "total_only",
-                                    "v_inf_max",
-                                    "v_inf_min",
-                                    "v_rel_max",
-                                    "v_rel_min"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]

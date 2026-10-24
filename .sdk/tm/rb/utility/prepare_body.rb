@@ -1,6 +1,9 @@
 # CloseApproachData SDK utility: prepare_body
+require_relative 'media'
 module CloseApproachDataUtilities
   PrepareBody = ->(ctx) {
-    ctx.op.input == "data" ? ctx.utility.transform_request.call(ctx) : nil
+    return nil unless ctx.op.input == "data"
+    return CloseApproachDataUtilities.raw_body(ctx.reqdata) if CloseApproachDataUtilities.raw_request?(ctx.point)
+    ctx.utility.transform_request.call(ctx)
   }
 end

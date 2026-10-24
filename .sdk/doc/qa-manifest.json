@@ -3,5 +3,16 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Array of close-approach records",
+      "Field names corresponding to data array elements",
+      "JPL Small-Body Database API Server",
+      "Number of records returned",
+      "Successful response with close-approach data",
+      "This API provides access to current close-approach data for all asteroids and comets in JPL&#39;s SBDB (Small-Body DataBase). It allows users to obtain detailed information about near-Earth objects and their proximity to our planet based on various query parameters. Defaults for query parameters are setup for a typical CNEOS web-site search: NEO Earth close-approaches less than 0.05 au in the next 60 days sorted by date.",
+      "Total number of matching records (when limit is used)"
+    ]
+  }
 }
